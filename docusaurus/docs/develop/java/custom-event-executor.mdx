@@ -5,7 +5,7 @@ deployment_options:
 custom_edit_url: https://github.com/wso2/docs-open-banking/edit/master/en/docs/develop/java/custom-event-executor.md
 ---
 
-##Writing a Custom Event Executor
+## Writing a Custom Event Executor
 
 WSO2 Open Banking Accelerator contains an event executor that processes events taken from an event queue 
 asynchronously. Relevant events are added to the event queue by WSO2 Open Banking Accelerator depending 
@@ -22,7 +22,7 @@ com.wso2.openbanking.accelerator.common.event.executor.OBEventExecutor
 
 Given below is a brief explanation of the methods you need to implement.
 
-###processEvent method
+### processEvent method
 
 This method processes the events polled from the event queue. Given below is the method signature:
 
@@ -119,7 +119,7 @@ For example:
 
 ```
 
-##Configuring a Custom Event Executor
+## Configuring a Custom Event Executor
 
 1. Once implemented, build a JAR file for your Custom Event Executor and place it in either or both
    `<IS_HOME>/repository/components/lib` directory and `<APIM_HOME>/repository/components/lib` directory based on your requirement.

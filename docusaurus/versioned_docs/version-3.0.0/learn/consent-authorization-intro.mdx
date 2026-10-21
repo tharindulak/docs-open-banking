@@ -22,11 +22,11 @@ to the customer.
 6. The customer can view the information before consenting or denying it. For example,
     ![grant consent](../../../assets/img/learn/consent-manager/consent-page-confirm.png) 
  
-##Consent Authorization in WSO2 Open Banking Accelerator
+## Consent Authorization in WSO2 Open Banking Accelerator
 
 Following components perform the consent authorization:
 
-###Authorization endpoint
+### Authorization endpoint
 Before the API consumer application accesses the customer's banking information, the API consumer sends an authorization 
 request to get the customer's consent for it. The authorization request contains a request object. This request object is 
 a self-contained JWT, which helps banks to validate the API consumer.
@@ -48,7 +48,7 @@ known as **Pushed Authorization**. The reference is notated by the claim; `reque
 
 and protects the confidentiality and integrity of the authorization details when passing through an API consumer application.
 
-###Pushed Authorization web application
+### Pushed Authorization web application
 The API consumers obtain `request_uri` which is a reference to the authentication and authorization details sent in the 
 pushed authorization request.
 
@@ -97,7 +97,7 @@ You can change the format of the request_uri using the `request_uri_sub_string` 
 
 </details>
 
-###Authorization web application 
+### Authorization web application
 The API consumers obtain an authorization URL that redirects the customer to a web interface hosted by the bank. In this 
 web application, the customer:
 
@@ -106,7 +106,7 @@ web application, the customer:
 - Selects the accounts that the API consumer can access.
 - Provides consent to the API consumer to access the information.
 
-###Identifier-first authenticator
+### Identifier-first authenticator
 Banks use Identifier-first authentication to authenticate the user with a second-factor authenticator instead of a password. 
 The user who logs into the authorization web application, can provide the username, and authenticate using a second-factor 
 authentication mechanism such as SMS-OTP/TOTP.

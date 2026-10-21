@@ -15,7 +15,7 @@ com.wso2.openbanking.accelerator.identity.listener.application.ApplicationUpdate
 To extend the validation capabilities according to your requirements, override the relevant methods in this class. Given 
 below is a brief description of each method:
 
-###publishData method
+### publishData method
 This method publishes data when creating a DCR application. For example,
 ```java
 public void publishData(Map < String, Object > spMetaData, OAuthConsumerAppDTO oAuthConsumerAppDTO)
@@ -25,14 +25,14 @@ throws OpenBankingException {
  - Inside this method, invoke the [`publishData` method](custom-data-publishing.mdx#publishdata-method) in the 
  `OBDataPublisherUtil` class to publish data. For more information, see [Custom Data Publishing](custom-data-publishing.mdx).
 
-###doPostDeleteApplication method
+### doPostDeleteApplication method
 This method publishes data when deleting the DCR application. For example,
 ```java
 public void doPostDeleteApplication(ServiceProvider serviceProvider, String tenantDomain, String userName)
 throws OpenBankingException {
 ```
 
-##Configuration
+## Configuration
 1. Add the classes that you extended to enable data publishing for the DCR flow in `<IS_HOME>/repository/conf/deployment.toml` 
 as follows:
 ```toml

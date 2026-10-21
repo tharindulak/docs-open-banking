@@ -5,7 +5,7 @@ deployment_options:
 custom_edit_url: https://github.com/wso2/docs-open-banking/edit/3.0.0/en/docs/develop/custom-claim-provider.md
 ---
 
-##Writing a custom claim provider
+## Writing a custom claim provider
 
 The `OBClaimProvider` class is an extension that lets you customize and create your own claim provider and add 
 additional claims to the authorization and/or token responses. You can add any claims according to your open banking 
@@ -17,7 +17,7 @@ com.wso2.openbanking.accelerator.identity.claims.OBClaimProvider
 
 To customize claims, override relevant methods of this class. Given below is a brief description of each method.
 
-###getAdditionalClaims method - Authorization response
+### getAdditionalClaims method - Authorization response
 
 This method lets you add additional claims to the authorization response. Given below is the method signature.
 
@@ -52,7 +52,7 @@ throws IdentityOAuth2Exception {
 
 </details>
 
-###getAdditionalClaims method - Access token response
+### getAdditionalClaims method - Access token response
 
 This method lets you add additional claims to the access token response. Given below is the method signature.
 
@@ -66,7 +66,7 @@ throws IdentityOAuth2Exception;
 Once implemented, build a JAR file for your custom claim provider and place it in the 
 `<IS_HOME>/repository/components/dropins` directory. 
 
-##Configuring a custom claim provider
+## Configuring a custom claim provider
 
 1. Open the `<IS_HOME>/repository/conf/deployment.toml` file.
 2. Add the following tags and configure your custom claim provider using its Fully Qualified Name (FQN) :
@@ -76,7 +76,7 @@ Once implemented, build a JAR file for your custom claim provider and place it i
 claim_provider="com.wso2.openbanking.accelerator.identity.claims.OBDefaultClaimProvider"
 ```
 
-##Configuring Claims for an Identity Provider
+## Configuring Claims for an Identity Provider
 
 Configuring claims for an identity provider involves mapping the claims available in the identity provider to claims 
 that are local to the WSO2 Identity Server. This is done so that the Identity Server can identify the user attributes 

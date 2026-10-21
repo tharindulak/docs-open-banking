@@ -12,7 +12,7 @@ in two methods:
 1. Using a script
 2. Writing a custom method
 
-###Using a script
+### Using a script
 
 1. Sign in to the Management Console of WSO2 Identity Server.
 2. In the **Main** tab, click **Identity** -> **Service Providers** -> **List**. ![Step-1](../../../assets/img/develop/data-publishing/step-1.png)
@@ -44,7 +44,7 @@ According to the sample function,
     - `executeStep` denotes the authentication step. According to the example, it is the first authentication step.
     - `publishAuthData` is the function that publishes the data elements from the authentication flow.
   
-###Writing a method
+### Writing a method
 1. To implement custom data publishing, extend the following `DefaultAuthDataPublisher` class:
 ```java
 com.wso2.openbanking.accelerator.authentication.data.publisher.extension.DefaultAuthDataPublisher
@@ -52,7 +52,7 @@ com.wso2.openbanking.accelerator.authentication.data.publisher.extension.Default
     - By default, `DefaultAuthDataPublisher` returns an empty map of data. To send additional data when authentication 
     happens, override the `getAdditionalData` method.
     
-####getAdditionalData method
+#### getAdditionalData method
   
 - The `JSAuthenticationContext` parameter contains a large amount of authentication related data. These data can be obtained by following 
     the common format below:

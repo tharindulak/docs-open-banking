@@ -128,7 +128,7 @@ This method handles the responses before API Authentication.
 public void preProcessResponse(OBAPIResponseContext obapiResponseContext);
 ```
 
-###postProcessResponse method
+### postProcessResponse method
 
 This method handles the responses after API Authentication.
 
@@ -139,7 +139,7 @@ public void postProcessResponse(OBAPIResponseContext obapiResponseContext);
 Use the above methods and the context attributes to implement the necessary logics. However, you can ignore 
 implementing any method and not return anything. Once implemented, build a JAR file for the project. 
 
-##Configuring a custom executor
+## Configuring a custom executor
 
 1. Place the above-created JAR file in the `<APIM_HOME>/repository/components/lib` directory. 
 

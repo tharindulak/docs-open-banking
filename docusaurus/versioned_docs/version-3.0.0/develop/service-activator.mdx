@@ -5,7 +5,7 @@ deployment_options:
 custom_edit_url: https://github.com/wso2/docs-open-banking/edit/3.0.0/en/docs/develop/service-activator.md
 ---
 
-##Writing a Custom OBServiceObserver
+## Writing a Custom OBServiceObserver
 
 WSO2 Open Banking Accelerator contains an `OBServiceObserver` component that provides a Java interface to manually execute 
 methods in non-OSGI modules at the server startup time for both Identity Server and API Manager Servers. A new custom 
@@ -19,7 +19,7 @@ com.wso2.openbanking.accelerator.service.activator.OBServiceObserver
 
 Given below is a brief explanation of the methods you need to implement.
 
-###Activate method
+### Activate method
 
 This is a public method without any return type or input parameters. You can customize it according to your requirements. 
 Given below is the method signature:
@@ -42,7 +42,7 @@ public class CustomObserver implements OBServiceObserver {
 }
 ```
 
-##Configuring a Custom OBServiceObserver
+## Configuring a Custom OBServiceObserver
 
 1. Once implemented, build a JAR file for your `OBServiceObserver` and place it in the  
    `<IS_HOME>/repository/components/dropins` and `<APIM_HOME>/repository/components/dropins` directories.

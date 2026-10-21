@@ -5,7 +5,7 @@ deployment_options:
 custom_edit_url: https://github.com/wso2/docs-open-banking/edit/3.0.0/en/docs/develop/custom-request-object-validator.md
 ---
 
-##Writing a Custom Request Object Validator
+## Writing a Custom Request Object Validator
 A Request Object contains authentication and authorization request parameters in a self-contained JWT. It is used in the 
 authorization endpoint of WSO2 Identity Server. Banks can use this authorization endpoint 
 to redirect the bank customer to authenticate and approve/deny consents before an API consumer accesses financial 
@@ -40,7 +40,7 @@ com.wso2.openbanking.accelerator.identity.auth.extensions.request.validator.OBRe
     
 3. Extend `OBRequestObjectValidator` and create your own class.
 
-###validateOBConstraints method
+### validateOBConstraints method
 This method performs the custom validations you add. Given below is the method signature:
 ```java
 public ValidationResponse validateOBConstraints(OBRequestObject obRequestObject, Map<String, Object> dataMap) 
@@ -62,7 +62,7 @@ from `obRequestObject` as follows:
 String error = OpenBankingValidator.getInstance().getFirstViolation(yourInheritedNewModel);
 ```
 
-##Configuring a custom Request Object Validator 
+## Configuring a custom Request Object Validator
 1. Make sure the following configuration exists in `<IS_HOME>/repository/conf/deployment.toml`:
 ```java
 [oauth.oidc.extensions]

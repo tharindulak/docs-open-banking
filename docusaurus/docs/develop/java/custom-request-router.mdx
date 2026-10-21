@@ -30,7 +30,7 @@ com.wso2.openbanking.accelerator.gateway.executor.core.AbstractRequestRouter
 ```
 Given below is a brief explanation of the methods you need to implement.
 
-###getExecutorsForRequest method
+### getExecutorsForRequest method
 
 This method lets you configure executors for requests.
 
@@ -38,7 +38,7 @@ This method lets you configure executors for requests.
 public abstract List<OpenBankingGatewayExecutor> getExecutorsForRequest(OBAPIRequestContext requestContext);
 ```
 
-###getExecutorsForResponse method
+### getExecutorsForResponse method
 
 This method lets you configure executors for responses.
 
@@ -51,7 +51,7 @@ request router, the router decides the flow to execute.
 
 Once implemented, build a JAR file for the project.
  
-##Configuring a custom Request Router
+## Configuring a custom Request Router
 
 
 1. Place the above-created JAR file in the `<APIM_HOME>/repository/components/lib` directory.

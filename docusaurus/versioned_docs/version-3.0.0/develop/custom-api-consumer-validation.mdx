@@ -36,7 +36,7 @@ com.wso2.openbanking.accelerator.gateway.executor.service.TPPValidationService
 To extend the validation capabilities according to your requirements, override relevant methods of this class. Given 
 below is a brief description of each method.
 
-###validate method
+### validate method
 
 Validates the roles and returns a boolean response as follows:
 
@@ -50,7 +50,7 @@ boolean validate(X509Certificate peerCertificate,
 throws TPPValidationException;
 ```
 
-###getCacheKey method
+### getCacheKey method
 
 Returns the cache key used for caching the responses and an ID that is unique to the API flow. Given below is the method 
 signature:
@@ -60,7 +60,7 @@ String getCacheKey(X509Certificate peerCertificate,
 throws TPPValidationException;
 ```
 
-##Configuration
+## Configuration
 
 - Open `<APIM_HOME>/repository/conf/deployment.toml` and locate the following to configure your custom API Consumer 
 Validation class:

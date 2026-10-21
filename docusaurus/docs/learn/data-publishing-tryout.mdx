@@ -81,7 +81,7 @@ custom_edit_url: https://github.com/wso2/docs-open-banking/edit/master/en/docs/l
             
             e. Go to the `<APIM_HOME>/repository/resources/security` directory and repeat step b,c, and d.
             
-###Configure
+### Configure
 1. Make sure that API Manager analytics is enabled in `<APIM_HOME>/repository/conf/deployment.toml`:
 ```toml
 [apim.analytics]
@@ -99,14 +99,14 @@ enable = true
 server_url = "{tcp://<SI_HOST>:7612}"
 ```
 
-###Start servers
+### Start servers
 1. Go to `<SI_HOME>/bin` and run the following command to start the Streaming Integrator server:
 ```
 ./server.sh
 ```
 2. Set up and start the Identity Server and API Manager Servers as instructed in [Setting up servers](../install-and-setup/setting-up-servers.mdx).
 
-###Try out
+### Try out
 1. Register an API consumer application as instructed  in [Dynamic Client Registration Tryout](dynamic-client-registration-try-out.mdx). 
 
 2. Try out the sample API flow using the instructions given in [Tryout Flow](../get-started/try-out-flow.mdx).

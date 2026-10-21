@@ -5,7 +5,7 @@ deployment_options:
 custom_edit_url: https://github.com/wso2/docs-open-banking/edit/master/en/docs/learn/api-security-configuration.md
 ---
 
-###Configuring MTLS Enforcement Executor
+### Configuring MTLS Enforcement Executor
 You can apply the `MTLSEnforcementExecutor` executor to check if a Mutual Transport Layer Security (MTLS) certificate is 
 present in the API request:
 
@@ -16,7 +16,7 @@ name = "com.wso2.openbanking.accelerator.gateway.executor.impl.mtls.cert.validat
 priority = 1
 ``` 
 
-###Configuring certificate revocation validation
+### Configuring certificate revocation validation
 You can apply the `CertRevocationValidationExecutor` executor to perform the Online Certificate Status Protocol (OCSP) and 
 Certificate Revocation List (CRL) certificate revocation validation in the API request:
 
@@ -38,7 +38,7 @@ priority = 2
     port = 8080
     ```
 
-###Configuring external API consumer validation
+### Configuring external API consumer validation
 
 !!!note
     By default, WSO2 Open Banking Accelerator supports a sample API flow to get account information and to initiate a 

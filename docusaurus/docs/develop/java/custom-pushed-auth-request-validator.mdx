@@ -11,7 +11,7 @@ of WSO2 Open Banking Accelerator. The Pushed Authorization endpoint returns
 a `request_uri` with an expiration time as a reference to the details sent 
 in the pushed authorization request.
 
-##Default Pushed Authorization Request validations
+## Default Pushed Authorization Request validations
 
 The Pushed Auth Request Validator uses the existing validation layer of WSO2 Open Banking Accelerator
 to enforce validations. By default, the following validations are available in the validation layer:
@@ -53,7 +53,7 @@ be signed before being encrypted.
 - Validation of invalid claims in request object - check whether the `request` and `request_uri` claims are 
   present in the request object.
 
-##Writing a Custom Pushed Auth Request Validator
+## Writing a Custom Pushed Auth Request Validator
 
 You can extend the default validations in WSO2 Open Banking Accelerator and add more validations according to your 
 open banking requirements:
@@ -66,7 +66,7 @@ com.wso2.openbanking.accelerator.identity.push.auth.extension.request.validator.
 
 Given below is a brief explanation of the methods you need to implement.
 
-###validateAdditionalParams method
+### validateAdditionalParams method
 
 This method performs the additional validations you add. Given below is the method signature:
 
@@ -135,7 +135,7 @@ For example:
 
 ```
 
-###createErrorResponse method
+### createErrorResponse method
 
 This method allows you to modify error responses. Given below is the method signature:
 
@@ -206,7 +206,7 @@ public PushAuthErrorResponse createErrorResponse(int httpStatusCode, String erro
 
 Once implemented, build a JAR file for the project.
 
-##Configuring a Custom Pushed Auth Request Validator
+## Configuring a Custom Pushed Auth Request Validator
 
 1. Place the above-created JAR file in the `<IS_HOME>/repository/components/lib` directory.
 2. Open the `<IS_HOME>/repository/conf/deployment.toml` file.

@@ -15,7 +15,7 @@ two stages as given in the below instructions:
 - Before server start
 - After server start
 
-###Before server start
+### Before server start
 If you have not started the Identity Server and API Manager servers, follow the below instructions to configure 
 identifier-first authentication.
 
@@ -98,11 +98,11 @@ var OTPFlow = function(context) {
     step = "2"
     ```
 
-###After server start
+### After server start
 If you have already started the Identity Server and API Manager servers, follow the below instructions to configure 
 identifier-first authentication.
 
-####Configuring SMS OTP authenticator
+#### Configuring SMS OTP authenticator
 1. Sign in to WSO2 Identity Server Management Console at `https://<IS_HOST>:9446/carbon`.
 2. On the **Main** tab, click **Home > Identity > Identity Providers > Add**. ![select-identity-providers](../../../assets/img/learn/identifier-first/select-identity-providers.png)
 3. Give `Identity Provider Name` as `SMSAuthentication`. ![identity-provider-name](../../../assets/img/learn/identifier-first/identity-provider-name.png)
@@ -155,12 +155,12 @@ the default one. Based on your SMS provider, fill out the SMS OTP configurations
         
 6. Click **Register** to add the Identity Provider. 
 
-####Configure account locking
+#### Configure account locking
 1. On the **Main** tab, click **Home > Identity > Identity Providers > Resident**. ![select-resident](../../../assets/img/learn/identifier-first/select-resident.png)
 2. Expand **Login Attempts Security > Account Lock**. ![expand-account](../../../assets/img/learn/identifier-first/expand-account.png)
 3. Select **Lock user accounts** and click **Update**. ![enable-account-locking](../../../assets/img/learn/identifier-first/enable-account-locking.png)
 
-####Configure mobile as a mandatory claim
+#### Configure mobile as a mandatory claim
 1. On the **Main** tab, click **Home > Identity > Claims > List**. 
 
     ![select-claims](../../../assets/img/learn/identifier-first/select-claims.png)
