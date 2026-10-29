@@ -1,0 +1,549 @@
+{
+  "summary": {
+    "source": "wso2/docs-open-banking@81100957b6859b054c58a49e8eb1ee44b96fada5",
+    "edition": "next",
+    "legacyBase": null,
+    "navPages": 138,
+    "sourceFiles": 179,
+    "stats": {
+      "pages": 177,
+      "partials": 0,
+      "apiPages": 4,
+      "placeholders": 23,
+      "images": 207,
+      "attachments": 13,
+      "missingImages": 8,
+      "links": 611,
+      "externalLinks": 251,
+      "legacyHostLinks": 0,
+      "otherVersionLinks": 39,
+      "crossProductLinks": 89,
+      "linksViaRedirect": 0,
+      "droppedLinks": 7,
+      "droppedAnchors": 8,
+      "placeholdersWrapped": 23,
+      "admonitions": 262,
+      "details": 61,
+      "tabSets": 0,
+      "codeBlocks": 1064,
+      "indentedCode": 4,
+      "htmlBlocks": 96,
+      "explicitIds": 57,
+      "basePathInCode": 0,
+      "basePathInText": 0,
+      "unknownElements": 1,
+      "unknownLanguages": [],
+      "generatedDescriptions": 177,
+      "sidebarLabels": 101,
+      "relativeFallback": 433,
+      "unlisted": 39,
+      "placeholders_": 0,
+      "sharedPages": 0,
+      "cloudOnlyPages": 0,
+      "selfHostedOnlyPages": 0,
+      "markedPages": 0,
+      "markers": 0,
+      "flatMerged": 0,
+      "editionCheckFailures": 0,
+      "imageVariants": 0,
+      "linkVariants": 0,
+      "includesExpanded": 0,
+      "includeFrontMatter": 0,
+      "flaggedOffPages": 0,
+      "specsFixed": 1,
+      "titlesVarying": 0,
+      "variants": 0,
+      "adjacentAlternatives": 0,
+      "cloudCounterparts": 0,
+      "ambiguousCounterparts": 0,
+      "overviewPages": 1,
+      "exportSingleFolders": 0,
+      "legacyRedirects": 0,
+      "legacyRedirectsSource": 0,
+      "acceptedByOverrides": 7
+    },
+    "issues": {
+      "nav": 1,
+      "not-in-nav": 39,
+      "indented-code": 3,
+      "missing-image": 8,
+      "html": 4,
+      "placeholder-link": 2,
+      "api-spec": 4,
+      "broken-anchor": 8
+    },
+    "compileFailures": 0,
+    "overrides": {
+      "file": "financial-services.overrides.yaml",
+      "patches": 6,
+      "patchesApplied": 6,
+      "accepted": 7
+    }
+  },
+  "items": [
+    {
+      "kind": "nav",
+      "file": "develop/java/developer-guide.md",
+      "message": "listed in the nav more than once; only the first entry (Develop > Toolkit > Extending Identity Server Accelerator Extensions > Java based extensions > Developer Guide) is kept"
+    },
+    {
+      "kind": "not-in-nav",
+      "file": "conformance/ciba-conformance.md",
+      "message": "not in the legacy nav; published unlisted (no sidebar entry, as before)"
+    },
+    {
+      "kind": "not-in-nav",
+      "file": "develop/java/authentication-flow-for-data-publishing.md",
+      "message": "not in the legacy nav; published unlisted (no sidebar entry, as before)"
+    },
+    {
+      "kind": "not-in-nav",
+      "file": "develop/java/authentication-worker.md",
+      "message": "not in the legacy nav; published unlisted (no sidebar entry, as before)"
+    },
+    {
+      "kind": "not-in-nav",
+      "file": "develop/java/ciba-consent-updater.md",
+      "message": "not in the legacy nav; published unlisted (no sidebar entry, as before)"
+    },
+    {
+      "kind": "not-in-nav",
+      "file": "develop/java/ciba-push-authenticator.md",
+      "message": "not in the legacy nav; published unlisted (no sidebar entry, as before)"
+    },
+    {
+      "kind": "not-in-nav",
+      "file": "develop/java/consent-amendment-history.md",
+      "message": "not in the legacy nav; published unlisted (no sidebar entry, as before)"
+    },
+    {
+      "kind": "not-in-nav",
+      "file": "develop/java/custom-data-publishing.md",
+      "message": "not in the legacy nav; published unlisted (no sidebar entry, as before)"
+    },
+    {
+      "kind": "not-in-nav",
+      "file": "develop/java/custom-dcr-validator.md",
+      "message": "not in the legacy nav; published unlisted (no sidebar entry, as before)"
+    },
+    {
+      "kind": "not-in-nav",
+      "file": "develop/java/custom-event-executor.md",
+      "message": "not in the legacy nav; published unlisted (no sidebar entry, as before)"
+    },
+    {
+      "kind": "not-in-nav",
+      "file": "develop/java/custom-pushed-auth-request-validator.md",
+      "message": "not in the legacy nav; published unlisted (no sidebar entry, as before)"
+    },
+    {
+      "kind": "not-in-nav",
+      "file": "develop/java/dcr-for-data-publishing.md",
+      "message": "not in the legacy nav; published unlisted (no sidebar entry, as before)"
+    },
+    {
+      "kind": "not-in-nav",
+      "file": "develop/java/distributed-cache.md",
+      "message": "not in the legacy nav; published unlisted (no sidebar entry, as before)"
+    },
+    {
+      "kind": "not-in-nav",
+      "file": "develop/java/id-token-builder-token-flow.md",
+      "message": "not in the legacy nav; published unlisted (no sidebar entry, as before)"
+    },
+    {
+      "kind": "not-in-nav",
+      "file": "develop/java/idempotency-handling-validator.md",
+      "message": "not in the legacy nav; published unlisted (no sidebar entry, as before)"
+    },
+    {
+      "kind": "not-in-nav",
+      "file": "develop/java/jws-response-signing.md",
+      "message": "not in the legacy nav; published unlisted (no sidebar entry, as before)"
+    },
+    {
+      "kind": "not-in-nav",
+      "file": "develop/java/jws-signature-validation.md",
+      "message": "not in the legacy nav; published unlisted (no sidebar entry, as before)"
+    },
+    {
+      "kind": "not-in-nav",
+      "file": "develop/java/service-activator.md",
+      "message": "not in the legacy nav; published unlisted (no sidebar entry, as before)"
+    },
+    {
+      "kind": "not-in-nav",
+      "file": "develop/java/token-data-publishing.md",
+      "message": "not in the legacy nav; published unlisted (no sidebar entry, as before)"
+    },
+    {
+      "kind": "not-in-nav",
+      "file": "develop/java/token-filters.md",
+      "message": "not in the legacy nav; published unlisted (no sidebar entry, as before)"
+    },
+    {
+      "kind": "not-in-nav",
+      "file": "develop/java/validation-layer.md",
+      "message": "not in the legacy nav; published unlisted (no sidebar entry, as before)"
+    },
+    {
+      "kind": "not-in-nav",
+      "file": "develop/mobile-application-for-ciba.md",
+      "message": "not in the legacy nav; published unlisted (no sidebar entry, as before)"
+    },
+    {
+      "kind": "indented-code",
+      "file": "get-started/configure-resources-users-and-roles-for-is.md",
+      "message": "indented block \"| API Resource | Identifier | Display Names | Scop\" became a code block (Python-Markdown read it as code too)"
+    },
+    {
+      "kind": "indented-code",
+      "file": "get-started/configure-users-and-roles.md",
+      "message": "indented block \"| API Resource | Identifier | Display Names | Scop\" became a code block (Python-Markdown read it as code too)"
+    },
+    {
+      "kind": "broken-link",
+      "file": "get-started/try-out-flow-with-is.md",
+      "message": "link to ../assets/attachments/transport-certs has no target in this version; link removed, text kept",
+      "detail": {
+        "href": "../assets/attachments/transport-certs"
+      },
+      "accepted": "a link to the transport-certs folder, which holds files but no page, so the legacy site served nothing there (obtransport.key and obtransport.pem are linked on their own)"
+    },
+    {
+      "kind": "missing-image",
+      "file": "get-started/try-out-flow-with-is.md",
+      "message": "image ../assets/img/learn/consent-manager/consent-page-confirm.png does not exist in the source; removed (alt: \"grant consent\")"
+    },
+    {
+      "kind": "broken-link",
+      "file": "get-started/try-out-flow.md",
+      "message": "link to ../assets/attachments/transport-certs has no target in this version; link removed, text kept",
+      "detail": {
+        "href": "../assets/attachments/transport-certs"
+      },
+      "accepted": "a link to the transport-certs folder, which holds files but no page, so the legacy site served nothing there (obtransport.key and obtransport.pem are linked on their own)"
+    },
+    {
+      "kind": "missing-image",
+      "file": "get-started/try-out-flow.md",
+      "message": "image ../assets/img/learn/consent-manager/consent-page-confirm.png does not exist in the source; removed (alt: \"grant consent\")"
+    },
+    {
+      "kind": "html",
+      "file": "index.md",
+      "message": "<style> removed (text: \"@font-face {\n    font-family: 'Material Icons';\n    font-sty\")"
+    },
+    {
+      "kind": "html",
+      "file": "index.md",
+      "message": "<div> block never closes; converted up to the next blank line"
+    },
+    {
+      "kind": "html",
+      "file": "index.md",
+      "message": "<div onclick=…> script handler removed (MDX pages run no inline scripts)"
+    },
+    {
+      "kind": "indented-code",
+      "file": "install-and-setup/configure-resources-users-and-roles.md",
+      "message": "indented block \"| API Resource | Identifier | Display Names | Scop\" became a code block (Python-Markdown read it as code too)"
+    },
+    {
+      "kind": "not-in-nav",
+      "file": "install-and-setup/data-purging.md",
+      "message": "not in the legacy nav; published unlisted (no sidebar entry, as before)"
+    },
+    {
+      "kind": "not-in-nav",
+      "file": "install-and-setup/wso2-clusters-with-nginx.md",
+      "message": "not in the legacy nav; published unlisted (no sidebar entry, as before)"
+    },
+    {
+      "kind": "not-in-nav",
+      "file": "learn/api-security-configuration.md",
+      "message": "not in the legacy nav; published unlisted (no sidebar entry, as before)"
+    },
+    {
+      "kind": "not-in-nav",
+      "file": "learn/ciba-set-up-flow.md",
+      "message": "not in the legacy nav; published unlisted (no sidebar entry, as before)"
+    },
+    {
+      "kind": "not-in-nav",
+      "file": "learn/ciba.md",
+      "message": "not in the legacy nav; published unlisted (no sidebar entry, as before)"
+    },
+    {
+      "kind": "missing-image",
+      "file": "learn/consent-authorization-intro.md",
+      "message": "image ../assets/img/learn/consent-manager/consent-page-select-accounts.png does not exist in the source; removed (alt: \"select accounts\")"
+    },
+    {
+      "kind": "missing-image",
+      "file": "learn/consent-authorization-intro.md",
+      "message": "image ../assets/img/learn/consent-manager/consent-page-confirm.png does not exist in the source; removed (alt: \"grant consent\")"
+    },
+    {
+      "kind": "broken-link",
+      "file": "learn/consent-management-endpoint.md",
+      "message": "link to ../../assets/attachments/transport-certs has no target in this version; link removed, text kept",
+      "detail": {
+        "href": "../../assets/attachments/transport-certs"
+      },
+      "accepted": "a link to the transport-certs folder, which holds files but no page, so the legacy site served nothing there (obtransport.key and obtransport.pem are linked on their own)"
+    },
+    {
+      "kind": "broken-link",
+      "file": "learn/consent-management-try-out.md",
+      "message": "link to ../../assets/attachments/transport-certs has no target in this version; link removed, text kept",
+      "detail": {
+        "href": "../../assets/attachments/transport-certs"
+      },
+      "accepted": "a link to the transport-certs folder, which holds files but no page, so the legacy site served nothing there (obtransport.key and obtransport.pem are linked on their own)"
+    },
+    {
+      "kind": "missing-image",
+      "file": "learn/consent-management-try-out.md",
+      "message": "image ../assets/img/learn/consent-manager/consent-page-confirm.png does not exist in the source; removed (alt: \"grant consent\")"
+    },
+    {
+      "kind": "not-in-nav",
+      "file": "learn/data-publishing-tryout.md",
+      "message": "not in the legacy nav; published unlisted (no sidebar entry, as before)"
+    },
+    {
+      "kind": "not-in-nav",
+      "file": "learn/data-publishing.md",
+      "message": "not in the legacy nav; published unlisted (no sidebar entry, as before)"
+    },
+    {
+      "kind": "not-in-nav",
+      "file": "learn/distributed-caching.md",
+      "message": "not in the legacy nav; published unlisted (no sidebar entry, as before)"
+    },
+    {
+      "kind": "not-in-nav",
+      "file": "learn/identifier-first.md",
+      "message": "not in the legacy nav; published unlisted (no sidebar entry, as before)"
+    },
+    {
+      "kind": "not-in-nav",
+      "file": "learn/integration.md",
+      "message": "not in the legacy nav; published unlisted (no sidebar entry, as before)"
+    },
+    {
+      "kind": "not-in-nav",
+      "file": "learn/introduction.md",
+      "message": "not in the legacy nav; published unlisted (no sidebar entry, as before)"
+    },
+    {
+      "kind": "not-in-nav",
+      "file": "learn/jarm-for-oauth2.md",
+      "message": "not in the legacy nav; published unlisted (no sidebar entry, as before)"
+    },
+    {
+      "kind": "placeholder-link",
+      "file": "learn/manual-client-registration-process.md",
+      "message": "link to the example URL https://<APIM_HOST>:9443/devportal removed, text kept"
+    },
+    {
+      "kind": "not-in-nav",
+      "file": "references/application-info-api.md",
+      "message": "not in the legacy nav; published unlisted (no sidebar entry, as before)"
+    },
+    {
+      "kind": "html",
+      "file": "references/config-catalog-is.md",
+      "message": "unknown element <iam_home> inside raw HTML kept as the text `<iam_home>`"
+    },
+    {
+      "kind": "not-in-nav",
+      "file": "references/consent-rest-api.md",
+      "message": "not in the legacy nav; published unlisted (no sidebar entry, as before)"
+    },
+    {
+      "kind": "api-spec",
+      "file": "references/dcr-rest-api.md",
+      "message": "openapi.yaml: converted from Swagger 2.0 to OpenAPI 3.0.3"
+    },
+    {
+      "kind": "api-spec",
+      "file": "references/dcr-rest-api.md",
+      "message": "openapi.yaml: paths[\"/register\"].post.parameters[0]: \"in\" must be query, header, path or cookie (found \"body\") (not fixed)"
+    },
+    {
+      "kind": "api-spec",
+      "file": "references/dcr-rest-api.md",
+      "message": "openapi.yaml: paths[\"/register/{ClientId}\"].put.parameters[0]: \"in\" must be query, header, path or cookie (found \"body\") (not fixed)"
+    },
+    {
+      "kind": "api-spec",
+      "file": "references/dcr-rest-api.md",
+      "message": "spec still fails validation after the fixes; the page links the YAML instead of rendering it"
+    },
+    {
+      "kind": "not-in-nav",
+      "file": "references/dcr-rest-api.md",
+      "message": "not in the legacy nav; published unlisted (no sidebar entry, as before)"
+    },
+    {
+      "kind": "not-in-nav",
+      "file": "toolkits/regulatory-aggregator/regulatory-aggregator-intro.md",
+      "message": "not in the legacy nav; published unlisted (no sidebar entry, as before)"
+    },
+    {
+      "kind": "not-in-nav",
+      "file": "toolkits/regulatory-aggregator/regulatory-aggregator-qsg.md",
+      "message": "not in the legacy nav; published unlisted (no sidebar entry, as before)"
+    },
+    {
+      "kind": "not-in-nav",
+      "file": "toolkits/regulatory-aggregator/regulatory-aggregator-try-out.md",
+      "message": "not in the legacy nav; published unlisted (no sidebar entry, as before)"
+    },
+    {
+      "kind": "placeholder-link",
+      "file": "tryout-flows/accelerator-with-is-and-apim/manual-client-registration.md",
+      "message": "link to the example URL https://<APIM_HOST>:9443/devportal removed, text kept"
+    },
+    {
+      "kind": "broken-link",
+      "file": "tryout-flows/accelerator-with-is-and-apim/try-out-accounts-flow-dcr.md",
+      "message": "link to ../../assets/attachments/transport-certs/ has no target in this version; link removed, text kept",
+      "detail": {
+        "href": "../../assets/attachments/transport-certs/"
+      },
+      "accepted": "a link to the transport-certs folder, which holds files but no page, so the legacy site served nothing there (obtransport.key and obtransport.pem are linked on their own)"
+    },
+    {
+      "kind": "missing-image",
+      "file": "tryout-flows/accelerator-with-is-and-apim/try-out-accounts-flow-dcr.md",
+      "message": "image ../../assets/img/learn/consent-manager/consent-page-confirm.png does not exist in the source; removed (alt: \"grant consent\")"
+    },
+    {
+      "kind": "missing-image",
+      "file": "tryout-flows/accelerator-with-is-and-apim/try-out-accounts-flow.md",
+      "message": "image ../../assets/img/learn/consent-manager/consent-page-confirm.png does not exist in the source; removed (alt: \"grant consent\")"
+    },
+    {
+      "kind": "broken-link",
+      "file": "tryout-flows/accelerator-with-is-and-apim/try-out-payments-flow-dcr.md",
+      "message": "link to ../../assets/attachments/transport-certs/ has no target in this version; link removed, text kept",
+      "detail": {
+        "href": "../../assets/attachments/transport-certs/"
+      },
+      "accepted": "a link to the transport-certs folder, which holds files but no page, so the legacy site served nothing there (obtransport.key and obtransport.pem are linked on their own)"
+    },
+    {
+      "kind": "broken-link",
+      "file": "tryout-flows/accelerator-with-is/try-out-flow-pre_initiated_consent.md",
+      "message": "link to ../../assets/attachments/transport-certs has no target in this version; link removed, text kept",
+      "detail": {
+        "href": "../../assets/attachments/transport-certs"
+      },
+      "accepted": "a link to the transport-certs folder, which holds files but no page, so the legacy site served nothing there (obtransport.key and obtransport.pem are linked on their own)"
+    },
+    {
+      "kind": "missing-image",
+      "file": "tryout-flows/accelerator-with-is/try-out-flow-pre_initiated_consent.md",
+      "message": "image ../../assets/img/learn/consent-manager/consent-page-confirm.png does not exist in the source; removed (alt: \"grant consent\")"
+    },
+    {
+      "kind": "broken-anchor",
+      "file": "develop/java/ciba-push-authenticator.md",
+      "message": "anchor #configuring-authenticator does not exist on guides/ciba-set-up-flow.mdx; anchor removed",
+      "detail": {
+        "href": "../learn/ciba-set-up-flow.md#configuring-authenticator",
+        "anchor": "configuring-authenticator",
+        "target": "docs/guides/ciba-set-up-flow.mdx",
+        "context": "main",
+        "suggest": null
+      }
+    },
+    {
+      "kind": "broken-anchor",
+      "file": "develop/java/dcr-for-data-publishing.md",
+      "message": "anchor #publishdata-method does not exist on guides/develop/toolkit/extending-identity-server-accelerator-extensions/java/custom-data-publishing.mdx; anchor removed",
+      "detail": {
+        "href": "custom-data-publishing.md#publishdata-method",
+        "anchor": "publishdata-method",
+        "target": "docs/guides/develop/toolkit/extending-identity-server-accelerator-extensions/java/custom-data-publishing.mdx",
+        "context": "main",
+        "suggest": null
+      }
+    },
+    {
+      "kind": "broken-anchor",
+      "file": "develop/java/developer-guide.md",
+      "message": "anchor #configuring-a-custom-request-object-validator does not exist on guides/develop/toolkit/extending-identity-server-accelerator-extensions/java/authorization-flow/custom-request-object-validator.mdx; anchor removed",
+      "detail": {
+        "href": "/develop/java/custom-request-object-validator#configuring-a-custom-request-object-validator",
+        "anchor": "configuring-a-custom-request-object-validator",
+        "target": "docs/guides/develop/toolkit/extending-identity-server-accelerator-extensions/java/authorization-flow/custom-request-object-validator.mdx",
+        "context": "main",
+        "suggest": null
+      }
+    },
+    {
+      "kind": "broken-anchor",
+      "file": "develop/java/token-data-publishing.md",
+      "message": "anchor #publishdata-method does not exist on guides/develop/toolkit/extending-identity-server-accelerator-extensions/java/custom-data-publishing.mdx; anchor removed",
+      "detail": {
+        "href": "custom-data-publishing.md#publishdata-method",
+        "anchor": "publishdata-method",
+        "target": "docs/guides/develop/toolkit/extending-identity-server-accelerator-extensions/java/custom-data-publishing.mdx",
+        "context": "main",
+        "suggest": null
+      }
+    },
+    {
+      "kind": "broken-anchor",
+      "file": "install-and-setup/deploy-with-docker.md",
+      "message": "anchor #download-wso2-updates does not exist on this page; anchor removed",
+      "detail": {
+        "href": "#download-wso2-updates",
+        "anchor": "download-wso2-updates",
+        "target": "docs/deploy-and-operate/install-and-setup/deploy-with-docker.mdx",
+        "context": "main",
+        "suggest": null
+      }
+    },
+    {
+      "kind": "broken-anchor",
+      "file": "learn/api-security.md",
+      "message": "anchor #role-validation does not exist on this page; anchor removed",
+      "detail": {
+        "href": "#role-validation",
+        "anchor": "role-validation",
+        "target": "docs/guides/api-security/api-security.mdx",
+        "context": "main",
+        "suggest": null
+      }
+    },
+    {
+      "kind": "broken-anchor",
+      "file": "learn/consent-manager.md",
+      "message": "anchor #/Admin does not exist on reference/apis/consent-rest-api/index.mdx; anchor removed",
+      "detail": {
+        "href": "../references/consent-rest-api.md#/Admin",
+        "anchor": "/Admin",
+        "target": "docs/reference/apis/consent-rest-api/index.mdx",
+        "context": "main",
+        "suggest": null
+      }
+    },
+    {
+      "kind": "broken-anchor",
+      "file": "tryout-flows/accelerator-with-is/try-out-flow-scope-based-consent.md",
+      "message": "anchor #step-1-generate-application-access-token does not exist on this page; anchor removed",
+      "detail": {
+        "href": "#step-1-generate-application-access-token",
+        "anchor": "step-1-generate-application-access-token",
+        "target": "docs/get-started/tryout-flows/accelerator-with-is/try-out-flow-scope-based-consent.mdx",
+        "context": "main",
+        "suggest": null
+      }
+    }
+  ]
+}
