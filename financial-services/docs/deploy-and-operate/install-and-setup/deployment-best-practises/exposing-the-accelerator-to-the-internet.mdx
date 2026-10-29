@@ -21,17 +21,15 @@ The following endpoint needs to be exposed to the public via API Manager:
 The following endpoints need to be exposed to the public via Identity Server:
 
 - `/authenticationendpoint/*`
-- `/fs/authenticationendpoint/*`
+- `/ob/authenticationendpoint/*`
 - `/consentmgr`
 - `/consentmgr*`
 - `/oauth2/token`
 - `/oauth2/introspect`
 - `/oauth2/revoke`
-- `/oauth2/par`
+- `/api/openbanking/push-authorization/par`
 - `/oauth2/authorize`
 - `/oauth2/userinfo`
 - `/oauth2/jwks`
 - `/oauth2/token/.well-known/openid-configuration`
 - `/commonauth`
-
-For more details on restricting public access on the Identity Server, see [Restrict public access to management operations](https://is.docs.wso2.com/en/latest/deploy/configure-console-hostname/#restrict-public-access-to-management-operations).

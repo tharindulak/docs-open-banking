@@ -1,36 +1,80 @@
 ---
 title: About this Release
-description: WSO2 Open Banking Accelerator 4.0 is the successor of WSO2 Open Banking Accelerator 3.0.  # generated from the first paragraph; a writer should improve it
+description: WSO2 Open Banking 3.0 is the successor of WSO2 Open Banking 2.0.  # generated from the first paragraph; a writer should improve it
 type: release-notes
 sidebar_label: About this release
 sidebar_position: 1
 ---
 
-**WSO2 Open Banking Accelerator 4.0** is the successor of WSO2 Open Banking Accelerator 3.0. It is a collection of technologies that increases the 
-speed and reduces the complexity of adopting open banking/open finance compliance. Instead of building a solution from scratch, you 
-can use WSO2 Open Banking Accelerator to meet all legislative requirements with additional benefits beyond compliance.
+**WSO2 Open Banking 3.0** is the successor of WSO2 Open Banking 2.0. It is a collection of technologies that increases the 
+speed and reduces the complexity of adopting open banking compliance. Instead of building a solution from scratch, you 
+can use WSO2 Open Banking to meet all legislative requirements with additional benefits beyond compliance. WSO2 Open Banking 
+comprises three modules:
+
+- **WSO2 Open Banking Identity Server Accelerator** runs on top of WSO2 Identity Server.
+- **WSO2 Open Banking API Manager Accelerator** runs on top of WSO2 API Manager.
+- **WSO2 Open Banking Business Intelligence Accelerator** runs on top of WSO2 Streaming Integrator.
 
 For more information on WSO2 Open Banking Accelerator, see the [Get Started](../get-started/open-banking.mdx) section.
 
+:::note
+WSO2 provides toolkits that offer compliance to the following open banking standards:
+
+- Open Banking Standard - UK
+- NextGenPSD2XS2A
+- Consumer Data Standards - Australia
+:::
+
 ## What is new in this release
 
-####WSO2 Open Banking Accelerator for Identity Server 
+####WSO2 Open Banking Identity Server Accelerator
 
-- Accelerator-level support for both pre-initiated and scope-based consent flows
-- OpenAPI based accelerator extension points to implement specification compliance addition to supported java based extension points. For more information, see [OpenAPI for Accelerator extensions](../reference/apis/accelerator-extensions-api/index.mdx)
-- JDK21 runtime support
-- Idempotency feature support from accelerator layer
 - Generalized consent management support for common open banking use cases. For more information, see [Consent Management](../guides/consent-management/consent-management.mdx).
-- New features support from WSO2 Identity Server
+- Extensible OAuth2/OIDC [authorization](../guides/develop/consent-management/consent-management-authorize.mdx) and [authentication](../guides/develop/token-flow-customization/jwt-access-tokens.mdx) 
+flows to support any open banking requirement.
+- Accelerator implementation for [token endpoint](../guides/token-authentication.mdx) validation including:
 
-    - Native support for Financial grade API (FAPI) Security. For more info,[refer](https://is.docs.wso2.com/en/7.0.0/references/financial-grade-api/)  
-    - OAuth2 Rich Authorization Request (RAR) support. For more info, [refer](https://is.docs.wso2.com/en/latest/guides/authorization/rich-authorization-requests/) 
+    - Transport layer certificate enforcement. 
+    - Token endpoint authentication method validation for regulatory use cases.
+
+- Mutual-TLS certificate-bound access tokens. For more information, see [Certificate-bound access tokens](https://ob.docs.wso2.com/en/latest/learn/token-authentication/#certificate-bound-access-tokens).
+- Customizable Identifier first authentication.
+- [Customizable web app](../guides/develop/consent-management/customize-consent-page.mdx) for consent approval during authentication. 
+- Extensible data publishing during the OAuth2/OIDC flows. For more information, see [Data Publishing](../guides/develop/data-publishing/authentication-flow-for-data-publishing.mdx).
+
+####WSO2 Open Banking API Manager Accelerator
+
+- Generalized implementation for [common open banking use cases](../get-started/quick-start-guide/try-out-flow.mdx):
+
+    - Consent enforcement
+    - eIDAS
+
+- [Executor framework](../guides/develop/open-banking-gateway/custom-gateway-executor.mdx) to enforce different policies based on regulatory and other requirements.
+- Supports custom functional paths for [non-regulatory](../guides/develop/open-banking-gateway/custom-request-router.mdx#handling-non-regulatory-apis) and [regulatory](../guides/develop/open-banking-gateway/custom-gateway-executor.mdx) 
+API flows such as Accounts, Payments, and 
+Dynamic Client Registration.
+- [Request router implementation](../guides/develop/open-banking-gateway/custom-request-router.mdx) to route request to specific functional paths.
+- Publish API invocation data from the Gateway. For more information, see [Custom Data Publishing](../guides/develop/data-publishing/custom-data-publishing.mdx).
+- Custom throttling keys. For more information, see [Custom Throttling Keys](../guides/develop/open-banking-gateway/custom-throttling-keys.mdx).
+
+####WSO2 Open Banking Business Intelligence Accelerator
+
+- Siddhi Applications to process and persist events published from the open banking uses cases:
+
+    - Dynamic Client Registration
+    - User authentication and consent authorization
+    - Token issuance
+    - API invocations
+
+For more information, see [Data Publishing](../guides/data-publishing/data-publishing.mdx).
 
 ##What has changed in this release
 
-WSO2 Open Banking Accelerator 4.0 is an improved version of WSO2 Open Banking Accelerator 3.0 to expand covering
-domain from Open Banking to Open Finance and improve developer experience of implementing accelerator extension points
-to cater regulatory and other open banking/ open finance requirements. Some significant changes in this release are,
+WSO2 Open Banking 3.0 is an improved solution to support requirements in any open banking standard. WSO2 Open Banking 3.0 
+provides accelerators for each product to accelerate a generalized open banking requirement that can be extended to support 
+regulatory and other open banking requirements. Some significant changes in this release are,
 
-- OpenAPI based extensions support for IAM Accelerators.  For more information, see [OpenAPI for Accelerator extensions](../reference/apis/accelerator-extensions-api/index.mdx)
-- Out of the box support for both of the consent flows of pre-initiated and scope-based
+- Extensibility to support any open banking requirement on top of the base technology stack provided through the accelerator.
+- New WSO2 Updates tool to receive product updates in-place. 
+- Improved Consent Management dashboard for customers and Admin dashboard for bank officers to search, update, and revoke 
+a consent.

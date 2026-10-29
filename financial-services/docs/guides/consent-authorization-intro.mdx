@@ -3,7 +3,7 @@ title: Consent Authorization
 description: During the consent authorization process, the banks redirect customers to provide consent for API consumers to access their banking information.  # generated from the first paragraph; a writer should improve it
 type: how-to
 sidebar_label: Consent authorization
-sidebar_position: 4
+sidebar_position: 2
 ---
 
 During the consent authorization process, the banks redirect customers to provide consent for API consumers to access 
@@ -18,10 +18,10 @@ to the customer.
     ![login-consent-page](../../assets/img/develop/customizing-consent-page/login-of-consent-page.png)
 
 5. A list of bank accounts and the information that the API consumer wishes to access are displayed.
-      
+    ![select accounts](../../assets/img/learn/consent-manager/consent-page-select-accounts.png)  
 
 6. The customer can view the information before consenting or denying it. For example,
-     
+    ![grant consent](../../assets/img/learn/consent-manager/consent-page-confirm.png) 
 
 ##Consent Authorization in WSO2 Open Banking Accelerator
 
@@ -68,28 +68,33 @@ Given below is a successful response:
 
 This same `request_uri` value is used in the subsequent authorization request as well.
 
-{/* WSO2 Open Banking Accelerator allows you to perform custom validations for the pushed authorization request. 
-For more information, see [writing a Custom Pushed Auth Request Validator](../develop/custom-pushed-auth-request-validator.md). */}
+WSO2 Open Banking Accelerator allows you to perform custom validations for the pushed authorization request. 
+For more information, see [writing a Custom Pushed Auth Request Validator](./develop/authorization-flow/custom-pushed-auth-request-validator.mdx).
 
-{/* ??? tip "Click here to see configurations related to the Pushed Authorization web application..."
-    1. Open the `<IS_HOME>/repository/conf/deployment.toml` file. 
-    2. Add the following configurations that allow you to change the format and the expiration time of the `request_uri` reference:
-    
-    ```
-    [open_banking.push_authorisation]
-    expiry_time=60
-    request_uri_sub_string="substring"
-    ```
+<details>
+<summary>Click here to see configurations related to the Pushed Authorization web application...</summary>
 
-    !!! note
-        You can change the format of the request_uri using the `request_uri_sub_string` tag.
-        
-        ```
-        {
-            "request_uri": "urn:<substring>:bwc4JK-ESC0w8acc191e-Y1LTC2",
-            "expires_in": 60
-        }
-        ``` */}
+1. Open the `<IS_HOME>/repository/conf/deployment.toml` file. 
+2. Add the following configurations that allow you to change the format and the expiration time of the `request_uri` reference:
+
+```text
+[open_banking.push_authorisation]
+expiry_time=60
+request_uri_sub_string="substring"
+```
+
+:::note
+You can change the format of the request_uri using the `request_uri_sub_string` tag.
+
+```text
+{
+    "request_uri": "urn:<substring>:bwc4JK-ESC0w8acc191e-Y1LTC2",
+    "expires_in": 60
+}
+```
+:::
+
+</details>
 
 ###Authorization web application 
 The API consumers obtain an authorization URL that redirects the customer to a web interface hosted by the bank. In this 
@@ -100,17 +105,7 @@ web application, the customer:
 - Selects the accounts that the API consumer can access.
 - Provides consent to the API consumer to access the information.
 
-{/* ###Identifier-first authenticator
+###Identifier-first authenticator
 Banks use Identifier-first authentication to authenticate the user with a second-factor authenticator instead of a password. 
 The user who logs into the authorization web application, can provide the username, and authenticate using a second-factor 
-authentication mechanism such as SMS-OTP/TOTP.  */}
-
-### Request Object Validation
-
-WSO2 Open Banking Accelerator supports validation of the request object sent during the authorization request. The Accelerator includes the following common request object validations out of the box:
-
-- Request object presence validation – Ensures that a request object is included in the authorization request.
-- `aud` claim validation – Verifies that the aud (audience) claim exists in the request object.
-- `scope` claim validation – Confirms that the scope claim exists and includes openid as one of the scopes.
-
-If additional validations are required, toolkit developers can implement them using the [Validate Authorize Request](./develop/toolkit/extending-identity-server-accelerator-extensions/openapi/openapi-authorization-flow.mdx) OpenAPI Extension.
+authentication mechanism such as SMS-OTP/TOTP.

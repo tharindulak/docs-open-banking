@@ -104,7 +104,7 @@ The profile name of the API Manager instance.
 
 ```text
 [super_admin]
-username = "am_admin@wso2.com"
+username = "admin@wso2.com"
 password = "wso2123"
 create_admin_account = true
 ```
@@ -117,7 +117,7 @@ This includes the configurations related to the super admin user.
 
 string Required
 
-Default: `am_admin@wso2.com`
+Default: `admin@wso2.com`
 
 The username of the super admin user.
 
@@ -145,7 +145,7 @@ Set this to true, to create a new user with the super admin details given.
 
 ```text
 [realm_manager]
-data_source= "WSO2USER_DB"
+data_source= "WSO2UM_DB"
 ```
 
 `[realm_manager]` Required
@@ -156,36 +156,13 @@ This includes the datasource configurations for the user management database.
 
 string Required
 
-Default: `WSO2USER_DB`
+Default: `WSO2UM_DB`
 
 The datasource used by the user manager.
 
-## Tenant management
-
-<input name="5" type="checkbox" id="_tab_5" readOnly />
-
-```text
-[tenant_mgt]
-enable_email_domain = true
-```
-
-`[tenant_mgt]` Required
-
-Configurations related to tenant users.
-
-`enable_email_domain`
-
-boolean Required
-
-Default: `TRUE`
-
-Possible Values: `true,false`
-
-Enable email login for tenant users.
-
 ## User store
 
-<input name="6" type="checkbox" id="_tab_6" readOnly />
+<input name="5" type="checkbox" id="_tab_5" readOnly />
 
 ```text
 [user_store]
@@ -215,7 +192,7 @@ Configure the user store manager class. The default primary user store configura
 
 ## User store properties
 
-<input name="7" type="checkbox" id="_tab_7" readOnly />
+<input name="6" type="checkbox" id="_tab_6" readOnly />
 
 ```text
 [user_store.properties]
@@ -285,7 +262,7 @@ A regular expression to validate usernames that contain an email address. By def
 
 ## Authorization manager
 
-<input name="8" type="checkbox" id="_tab_8" readOnly />
+<input name="7" type="checkbox" id="_tab_7" readOnly />
 
 ```text
 [authorization_manager]
@@ -306,7 +283,7 @@ The Authorization Manager for your server.
 
 ## Authorization manager properties
 
-<input name="9" type="checkbox" id="_tab_9" readOnly />
+<input name="8" type="checkbox" id="_tab_8" readOnly />
 
 ```text
 [authorization_manager.properties]
@@ -347,11 +324,11 @@ Enable this if there are any performance issues in the production environment. E
 
 ## Shared database configurations
 
-<input name="10" type="checkbox" id="_tab_10" readOnly />
+<input name="9" type="checkbox" id="_tab_9" readOnly />
 
 ```text
 [database.shared_db]
-url = "jdbc:mysql://localhost:3306/fs_am_configdb?autoReconnect=true&useSSL=false"
+url = "jdbc:mysql://localhost:3306/openbank_govdb?autoReconnect=true&useSSL=false"
 username = "root"
 password = "root"
 driver = "com.mysql.jdbc.Driver"
@@ -365,9 +342,9 @@ Configurations related to the databases shared between nodes.
 
 string Required
 
-Default: `jdbc:mysql://localhost:3306/fs_am_configdb?autoReconnect=true&amp;useSSL=false`
+Default: `jdbc:mysql://localhost:3306/openbank_govdb?autoReconnect=true&amp;useSSL=false`
 
-The database connection URL that your DBMS JDBC driver uses to connect to the fs_am_configdb database.
+The database connection URL that your DBMS JDBC driver uses to connect to the openbank_govdb database.
 
 `username`
 
@@ -397,7 +374,7 @@ The name of the JDBC driver.
 
 ## Shared database connection pool configurations
 
-<input name="11" type="checkbox" id="_tab_11" readOnly />
+<input name="10" type="checkbox" id="_tab_10" readOnly />
 
 ```text
 [database.shared_db.pool_options]
@@ -478,11 +455,11 @@ Tuning parameters. Change according to the preferred database.
 
 ## API Manager database configurations
 
-<input name="12" type="checkbox" id="_tab_12" readOnly />
+<input name="11" type="checkbox" id="_tab_11" readOnly />
 
 ```text
 [database.apim_db]
-url = "jdbc:mysql://localhost:3306/fs_apimgtdb?autoReconnect=true&useSSL=false"
+url = "jdbc:mysql://localhost:3306/openbank_apimgtdb?autoReconnect=true&useSSL=false"
 username = "root"
 password = "root"
 driver = "com.mysql.jdbc.Driver"
@@ -496,7 +473,7 @@ Database configurations related to API Manager.
 
 string Required
 
-Default: `jdbc:mysql://localhost:3306/fs_apimgtdb?autoReconnect=true&amp;useSSL=false`
+Default: `jdbc:mysql://localhost:3306/openbank_apimgtdb?autoReconnect=true&amp;useSSL=false`
 
 The database connection URL that your DBMS JDBC driver uses to connect to the openbank_apimgtdb database.
 
@@ -528,7 +505,7 @@ The name of the JDBC driver.
 
 ## API Manager database connection pool configurations
 
-<input name="13" type="checkbox" id="_tab_13" readOnly />
+<input name="12" type="checkbox" id="_tab_12" readOnly />
 
 ```text
 [database.apim_db.pool_options]
@@ -609,11 +586,11 @@ Tuning parameters. Change according to the preferred database.
 
 ## API Manager config registry database
 
-<input name="14" type="checkbox" id="_tab_14" readOnly />
+<input name="13" type="checkbox" id="_tab_13" readOnly />
 
 ```text
 [database.config]
-url = "jdbc:mysql://localhost:3306/fs_am_configdb?autoReconnect=true&useSSL=false"
+url = "jdbc:mysql://localhost:3306/openbank_am_configdb?autoReconnect=true&useSSL=false"
 username = "root"
 password = "root"
 driver = "com.mysql.jdbc.Driver"
@@ -627,9 +604,9 @@ Configurations related to the API Manager config registry database.
 
 string Required
 
-Default: `jdbc:mysql://localhost:3306/fs_am_configdb?autoReconnect=true&amp;useSSL=false`
+Default: `jdbc:mysql://localhost:3306/openbank_am_configdb?autoReconnect=true&amp;useSSL=false`
 
-The database connection URL that your DBMS JDBC driver uses to connect to the fs_am_configdb database.
+The database connection URL that your DBMS JDBC driver uses to connect to the openbank_am_configdb database.
 
 `username`
 
@@ -659,7 +636,7 @@ The name of the JDBC driver.
 
 ## Config registry database connection pool configurations
 
-<input name="15" type="checkbox" id="_tab_15" readOnly />
+<input name="14" type="checkbox" id="_tab_14" readOnly />
 
 ```text
 [database.config.pool_options]
@@ -740,27 +717,46 @@ Tuning parameters. Change according to the preferred database.
 
 ## User Manager datasource
 
-<input name="16" type="checkbox" id="_tab_16" readOnly />
+<input name="15" type="checkbox" id="_tab_15" readOnly />
 
 ```text
-[database.user]
-url = "jdbc:mysql://localhost:3306/fs_am_userdb?autoReconnect=true&useSSL=false"
+[[datasource]]
+id="WSO2UM_DB"
+url = "jdbc:mysql://localhost:3306/openbank_userdb?autoReconnect=true&useSSL=false"
 username = "root"
 password = "root"
 driver = "com.mysql.jdbc.Driver"
+jmx_enable=false
+pool_options.maxActive = "150"
+pool_options.maxWait = "60000"
+pool_options.minIdle = "5"
+pool_options.testOnBorrow = true
+pool_options.validationQuery="SELECT 1"
+#Use below for oracle
+#validationQuery="SELECT 1 FROM DUAL"
+pool_options.validationInterval="30000"
+pool_options.defaultAutoCommit=false
 ```
 
-`[database.user]` Required
+`[datasource]` Required
 
-Configurations related to the API Manager config registry database.
+Configurations related to the user manager datasource.
+
+`id`
+
+string Required
+
+Default: `WSO2UM_DB`
+
+The datasource used by user manager.
 
 `url`
 
 string Required
 
-Default: `jdbc:mysql://localhost:3306/fs_am_userdb?autoReconnect=true&amp;useSSL=false`
+Default: `jdbc:mysql://localhost:3306/openbank_userdb?autoReconnect=true&amp;useSSL=false`
 
-The database connection URL that your DBMS JDBC driver uses to connect to the fs_am_userdb database.
+The database connection URL that your DBMS JDBC driver uses to connect to the openbank_userdb database.
 
 `username`
 
@@ -788,26 +784,17 @@ Possible Values: `com.mysql.jdbc.Driver, com.microsoft.sqlserver.jdbc.SQLServerD
 
 The name of the JDBC driver.
 
-## User manager database connection pool configurations
+`jmx_enable`
 
-<input name="17" type="checkbox" id="_tab_17" readOnly />
+boolean Required
 
-```text
-[database.user.pool_options]
-maxActive = "150"
-maxWait = "60000"
-minIdle ="5"
-testOnBorrow = true
-validationQuery="SELECT 1"
-#Use below for oracle
-#validationQuery="SELECT 1 FROM DUAL"
-validationInterval="30000"
-defaultAutoCommit=false
-```
+Default: `FALSE`
 
-`[database.user.pool_options]` Required
+Possible Values: `true,false`
 
-`maxActive`
+Use this parameter to enable JMX for the database connection.
+
+`pool_options.maxActive`
 
 string Required
 
@@ -815,7 +802,7 @@ Default: `150`
 
 Tuning parameters. Change according to the preferred database.
 
-`maxWait `
+`pool_options.maxWait`
 
 string Required
 
@@ -823,7 +810,7 @@ Default: `60000`
 
 Tuning parameters. Change according to the preferred database.
 
-`minIdle`
+`pool_options.minIdle`
 
 string Required
 
@@ -831,7 +818,7 @@ Default: `5`
 
 Tuning parameters. Change according to the preferred database.
 
-`testOnBorrow`
+`pool_options.testOnBorrow `
 
 boolean Required
 
@@ -841,7 +828,7 @@ Possible Values: `true,false`
 
 Tuning parameters. Change according to the preferred database.
 
-`validationQuery`
+`pool_options.validationQuery`
 
 string Required
 
@@ -851,7 +838,7 @@ Possible Values: `SELECT 1,SELECT 1 FROM DUAL`
 
 Tuning parameters. Change according to the preferred database. For Oracle DBMS, use "SELECT 1 FROM DUAL".
 
-`validationInterval`
+`pool_options.validationInterval`
 
 string Required
 
@@ -859,7 +846,7 @@ Default: `30000`
 
 Tuning parameters. Change according to the preferred database.
 
-`defaultAutoCommit`
+`pool_options.defaultAutoCommit`
 
 boolean Required
 
@@ -869,9 +856,32 @@ Possible Values: `true,false`
 
 Tuning parameters. Change according to the preferred database.
 
+## Tenant management
+
+<input name="16" type="checkbox" id="_tab_16" readOnly />
+
+```text
+[tenant_mgt]
+enable_email_domain = true
+```
+
+`[tenant_mgt]` Required
+
+Configurations related to tenant users.
+
+`enable_email_domain`
+
+boolean Required
+
+Default: `TRUE`
+
+Possible Values: `true,false`
+
+Enable email login for tenant users.
+
 ## Keystore TLS
 
-<input name="18" type="checkbox" id="_tab_18" readOnly />
+<input name="17" type="checkbox" id="_tab_17" readOnly />
 
 ```text
 [keystore.tls]
@@ -930,7 +940,7 @@ The password of the private key.
 
 ## Primary keystore
 
-<input name="19" type="checkbox" id="_tab_19" readOnly />
+<input name="18" type="checkbox" id="_tab_18" readOnly />
 
 ```text
 #[keystore.primary]
@@ -987,7 +997,7 @@ The password of the private key.
 
 ## Internal keystore
 
-<input name="20" type="checkbox" id="_tab_20" readOnly />
+<input name="19" type="checkbox" id="_tab_19" readOnly />
 
 ```text
 #[keystore.internal]
@@ -1044,13 +1054,12 @@ The password of the private key.
 
 ## API Manager Gateway environment configurations
 
-<input name="21" type="checkbox" id="_tab_21" readOnly />
+<input name="20" type="checkbox" id="_tab_20" readOnly />
 
 ```text
 [[apim.gateway.environment]]
 name = "Default"
 type = "hybrid"
-gateway_type = "Regular"
 display_in_api_console = true
 description = "This is a hybrid gateway that handles both production and sandbox token traffic."
 show_as_token_endpoint_url = true
@@ -1171,14 +1180,23 @@ The Hypertext Transfer Protocol Secure (HTTPS) endpoint.
 
 ## Configure the Gateway environment
 
-<input name="22" type="checkbox" id="_tab_22" readOnly />
+<input name="21" type="checkbox" id="_tab_21" readOnly />
 
 ```text
 [apim.sync_runtime_artifacts.gateway]
+skip_list.sequences = ["jsonConverter.xml"]
 gateway_labels =["Default"]
 ```
 
 `[apim.sync_runtime_artifacts.gateway]` Required
+
+`skip_list.sequences`
+
+string Required
+
+Default: `["jsonConverter.xml"]`
+
+The list of artifacts to skip during runtime.
 
 `gateway_labels`
 
@@ -1188,7 +1206,7 @@ Default: `["Default"]`
 
 ## Gateway token cache
 
-<input name="23" type="checkbox" id="_tab_23" readOnly />
+<input name="22" type="checkbox" id="_tab_22" readOnly />
 
 ```text
 #[apim.cache.gateway_token]
@@ -1220,7 +1238,7 @@ Set the cache expiry time in seconds. The recommended value is 900 seconds.
 
 ## Gateway cache resource
 
-<input name="24" type="checkbox" id="_tab_24" readOnly />
+<input name="23" type="checkbox" id="_tab_23" readOnly />
 
 ```text
 #[apim.cache.resource]
@@ -1248,9 +1266,9 @@ Default: `900s`
 
 Set the cache expiry time in seconds. The recommended value is 900 seconds.
 
-## Key Manager token cache
+## Key Manager token cache¶
 
-<input name="25" type="checkbox" id="_tab_25" readOnly />
+<input name="24" type="checkbox" id="_tab_24" readOnly />
 
 ```text
 #[apim.cache.km_token]
@@ -1280,7 +1298,7 @@ Set the cache expiry time in minutes.
 
 ## Cache recent APIs
 
-<input name="26" type="checkbox" id="_tab_26" readOnly />
+<input name="25" type="checkbox" id="_tab_25" readOnly />
 
 ```text
 #[apim.cache.recent_apis]
@@ -1301,7 +1319,7 @@ Enable cache for recently added APIs in the API Developer Portal. This expires i
 
 ## Cache scopes
 
-<input name="27" type="checkbox" id="_tab_27" readOnly />
+<input name="26" type="checkbox" id="_tab_26" readOnly />
 
 ```text
 #[apim.cache.scopes]
@@ -1322,7 +1340,7 @@ Enable cache for scopes. This expires in 15 minutes by default.
 
 ## Cache publisher roles
 
-<input name="28" type="checkbox" id="_tab_28" readOnly />
+<input name="27" type="checkbox" id="_tab_27" readOnly />
 
 ```text
 #[apim.cache.publisher_roles]
@@ -1343,7 +1361,7 @@ Enable cache for publisher roles. Expires in 15 minutes by default
 
 ## Cache JWT claims
 
-<input name="29" type="checkbox" id="_tab_29" readOnly />
+<input name="28" type="checkbox" id="_tab_28" readOnly />
 
 ```text
 #[apim.cache.jwt_claim]
@@ -1373,7 +1391,7 @@ Set the cache expiry time. Would be the same as the JWT expiry time.
 
 ## Cache tags
 
-<input name="30" type="checkbox" id="_tab_30" readOnly />
+<input name="29" type="checkbox" id="_tab_29" readOnly />
 
 ```text
 #[apim.cache.tags]
@@ -1392,12 +1410,14 @@ Set when the tag cache expires. This option is disabled when not defined.
 
 ## API Manager Analytics configurations
 
-<input name="31" type="checkbox" id="_tab_31" readOnly />
+<input name="30" type="checkbox" id="_tab_30" readOnly />
 
 ```text
 [apim.analytics]
-enable = false
+enable = true
+config_endpoint = "https://analytics-event-auth.st.choreo.dev/auth/v1"
 auth_token = ""
+properties.'publisher.reporter.class' = "com.wso2.openbanking.accelerator.gateway.reporter.OBAnalyticsMetricReporter"
 ```
 
 `[apim.analytics]` Required
@@ -1406,11 +1426,17 @@ auth_token = ""
 
 boolean Required
 
-Default: `false`
+Default: `TRUE`
 
 Possible Values: `true,false`
 
 Use this to enable data publishing in the API Manager.
+
+`config_endpoint`
+
+string Required
+
+Default: `https://analytics-event-auth.st.choreo.dev/auth/v1`
 
 `auth_token`
 
@@ -1418,17 +1444,25 @@ string Required
 
 Default:
 
+`properties.'publisher.reporter.class'`
+
+string Required
+
+Default: `com.wso2.openbanking.accelerator.gateway.reporter.OBAnalyticsMetricReporter`
+
+A mandatory config for OB analytics. Defines the metric reporter implementation of WSO2 Open Banking.
+
 ## API Manager - Key Manager configurations {#api-manager-key-manager-configurations}
 
-<input name="32" type="checkbox" id="_tab_32" readOnly />
+<input name="31" type="checkbox" id="_tab_31" readOnly />
 
 ```text
 [apim.key_manager]
-enable_lightweight_apikey_generation = true
-service_url = "https://localhost:9446/services/"
-username = "is_admin@wso2.com"
-password = "wso2123"
-allow_subscription_validation_disabling = true
+service_url = "https://localhost:9446${carbon.context}services/"
+type = "WSO2-IS"
+key_manager_client_impl = "org.wso2.carbon.apimgt.impl.AMDefaultKeyManagerImpl"
+#username = "$ref{super_admin.username}"
+#password = "$ref{super_admin.password}"
 #pool.init_idle_capacity = 50
 #pool.max_idle = 100
 #key_validation_handler_type = "default"
@@ -1452,11 +1486,17 @@ string Required
 
 Default: `WSO2-IS`
 
+`key_manager_client_impl`
+
+string Required
+
+Default: `org.wso2.carbon.apimgt.impl.AMDefaultKeyManagerImpl`
+
 `username`
 
 string
 
-Default: `is_admin@wso2.com`
+Default: `$ref{super_admin.username}`
 
 Credentials of the super admin user in the Key Manager node.
 
@@ -1464,17 +1504,9 @@ Credentials of the super admin user in the Key Manager node.
 
 string
 
-Default: `wso2123`
+Default: `$ref{super_admin.password}`
 
 Credentials of the super admin user in the Key Manager node.
-
-`allow_subscription_validation_disabling`
-
-boolean
-
-Default: `true`
-
-DIsable the API Subscription Validation.
 
 `pool.init_idle_capacity`
 
@@ -1510,6 +1542,53 @@ Default: `org.wso2.carbon.apimgt.keymgt.handlers.DefaultKeyValidationHandler`
 
 Provide a custom key validation handler implementation. To do this, set \`key_validation_handler_type\` to \`custom\`.
 
+## API Manager - Key Manager URLs {#api-manager-key-manager-urls}
+
+<input name="32" type="checkbox" id="_tab_32" readOnly />
+
+```text
+[apim.key_manager.configuration]
+ServerURL = "https://localhost:9446${carbon.context}services/"
+Username = "${admin.username}"
+Password = "${admin.password}"
+TokenURL = "https://localhost:${https.nio.port}/token"
+RevokeURL = "https://localhost:${https.nio.port}/revoke"
+```
+
+`[apim.key_manager.configuration]` Required
+
+Configure URLs related to the Key Manager server.
+
+`ServerURL`
+
+string Required
+
+Default: `https://localhost:9446${carbon.context}services/`
+
+`Username`
+
+string Required
+
+Default: `${admin.username}`
+
+`Password`
+
+string Required
+
+Default: `${admin.password}`
+
+`TokenURL`
+
+string Required
+
+Default: `https://localhost:${https.nio.port}/token`
+
+`RevokeURL`
+
+string Required
+
+Default: `https://localhost:${https.nio.port}/revoke`
+
 ## OAuth configurations
 
 <input name="33" type="checkbox" id="_tab_33" readOnly />
@@ -1517,7 +1596,7 @@ Provide a custom key validation handler implementation. To do this, set \`key_va
 ```text
 [apim.oauth_config]
 enable_outbound_auth_header = true
-white_listed_scopes = ["^device_.*", "openid", "^FS_.*", "^TIME_.*"]
+white_listed_scopes = ["^device_.*", "openid", "^OB_.*", "^TIME_.*"]
 #auth_header = "Authorization"
 #revoke_endpoint = "https://localhost:${https.nio.port}/revoke"
 #enable_token_encryption = false
@@ -1542,7 +1621,7 @@ If \`TRUE\`, sends the Auth header to the backend as received from the client.
 
 string Required
 
-Default: `["^device_.*", "openid", "^FS_.*", "^TIME_.*"]`
+Default: `["^device_.*", "openid", "^OB_.*", "^TIME_.*"]`
 
 To skip role validation for a scope in an API's request, add the scope to the white list.
 
@@ -1751,7 +1830,7 @@ Specifying this header to true means that the server allows cookies (or other us
 
 ```text
 [apim.throttling]
-username = "$ref{super_admin.username}@carbon.super"
+username = "admin@wso2.com@carbon.super"
 #enable_data_publishing = true
 #enable_policy_deploy = true
 #enable_blacklist_condition = true
@@ -1767,7 +1846,7 @@ Configurations related to API Manager traffic control.
 
 string Required
 
-Default: `$ref{super_admin.username}@carbon.super`
+Default: `admin@wso2.com@carbon.supe`
 
 `enable_data_publishing`
 
@@ -1817,18 +1896,241 @@ Default: `["tcp://localhost:5672","tcp://localhost:5672"]`
 
 Define a set of JMS connections as an array.
 
-## Throttling Policy Deploy configurations
+## MTLS Header to invoke APIs secured with Mutual SSL
 
 <input name="37" type="checkbox" id="_tab_37" readOnly />
 
 ```text
-[apim.throttling.policy_deploy]
-username = "$ref{super_admin.username}@carbon.super"
+[apimgt.mutual_ssl]
+certificate_header = ""
+enable_client_validation = false
+client_certificate_encode = false
 ```
 
-`[apim.throttling.policy_deploy]` Required
+`[apimgt.mutual_ssl]`
 
-Configurations related to API Manager traffic control.
+`certificate_header`
+
+string
+
+Sample: `ssl.client.auth.cert.X509`
+
+By default, the WSO2 API Manager retrieves the client certificate from the X-WSO2-CLIENT-CERTIFICATE HTTP header. If you want to change the header name config it here.
+
+`enable_client_validation`
+
+boolean
+
+Sample: `false`
+
+This property needs to be true if the MutualSSL connection is established between the load balancer and the Gateway.
+
+`client_certificate_encode`
+
+boolean
+
+Sample: `false`
+
+This property needs to be true if the certificate should be decoded when it is passed from the load balancer to the Gateway.
+
+## Consent validation service
+
+<input name="37" type="checkbox" id="_tab_37" readOnly />
+
+```text
+[open_banking.gateway.consent.validation]
+endpoint = "https://localhost:9446/api/openbanking/consent/validate"
+```
+
+`[open_banking.gateway.consent.validation]` Required
+
+`endpoint`
+
+string
+
+Default: `https://localhost:9446/api/openbanking/consent/validate`
+
+Configure a custom Consent Validation service.
+
+## Dynamic Client Registration
+
+<input name="38" type="checkbox" id="_tab_38" readOnly />
+
+```text
+[open_banking.dcr]
+#jwks_endpoint_name = ""
+#app_name_claim = " "
+token_endpoint = "https://localhost:9443/oauth2/token"
+use_softwareIdForAppName = true
+```
+
+`[open_banking.dcr]` Required
+
+Configurations related to Dynamic Client Registration.
+
+`jwks_endpoint_name`
+
+string
+
+Default:
+
+Configure the name of the claim regarding the jwks endpoint that is issued for the SSA. You can refer to the SSA for this value.
+
+`app_name_claim`
+
+string
+
+Default:
+
+Configure the claim name in the SSA that mentions the software. If the use_softwareIdForAppName configuration is set to false, the name of the application is set using the value of the given claim.
+
+`token_endpoint`
+
+string Required
+
+Default: `https://<APIM_HOST>:9443/oauth2/token`
+
+The hostname of the API Manager server for the token endpoint.
+
+`use_softwareIdForAppName`
+
+boolean Required
+
+Default: `TRUE`
+
+To set the software id as the name of the application. By default, this configuration is set to true.
+
+## DCR - JWKS endpoint connection timeout {#dcr-jwks-endpoint-connection-timeout}
+
+<input name="39" type="checkbox" id="_tab_39" readOnly />
+
+```text
+#[open_banking.dcr.jwks_retriever]
+#connection_timeout = 3000
+#read_timeout = 3000
+```
+
+`[open_banking.dcr.jwks_retriever]`
+
+Configure the timeout value, when validating the signature of the request.
+
+`connection_timeout`
+
+string
+
+Default: `3000`
+
+The timeout values when validating the signature of the request.
+
+`read_timeout`
+
+string
+
+Default: `3000`
+
+The timeout values when validating the signature of the request.
+
+## DCR - Regulatory APIs configurations {#dcr-regulatory-apis-configurations}
+
+<input name="40" type="checkbox" id="_tab_40" readOnly />
+
+```text
+[[open_banking.dcr.regulatory_api]]
+api_name = "CDR-DynamicClientRegistration"
+roles = "AISP,PISP"
+
+[[open_banking.dcr.regulatory_api]]
+api_name = "AccountandTransactionAPI"
+roles = "AISP"
+```
+
+`[open_banking.dcr.regulatory_api]` Required
+
+`api_name`
+
+string Required
+
+Default: `CDR-DynamicClientRegistration`
+
+The regulatory APIs, which should be subscribed to by DCR applications.
+
+`roles`
+
+string Required
+
+Default: `AISP,PISP`
+
+The roles in the SSA that the API consumer application will be playing.
+
+## API Manager internal REST APIs
+
+<input name="41" type="checkbox" id="_tab_41" readOnly />
+
+```text
+[[open_banking.dcr.apim_rest_endpoints]]
+app_creation = "api/am/devportal/v2/applications"
+key_generation = "api/am/devportal/v2/applications/application-id/map-keys"
+api_retrieve = "api/am/devportal/v2/apis"
+api_subscribe = "api/am/devportal/v2/subscriptions/multiple"
+```
+
+`[open_banking.dcr.apim_rest_endpoints]`
+
+If you want to change the internal REST API endpoints of the API Manager, configure the following tags. By default, the API Manager 4.1 endpoints are configured.
+
+`app_creation`
+
+string
+
+Default: `api/am/devportal/v2/applications`
+
+`key_generation`
+
+string
+
+Default: `api/am/devportal/v2/applications/application-id/map-keys`
+
+`api_retrieve`
+
+string
+
+Default: `api/am/devportal/v2/apis`
+
+`api_subscribe`
+
+string
+
+Default: `api/am/devportal/v2/subscriptions/multiple`
+
+## Data publishing configurations
+
+<input name="42" type="checkbox" id="_tab_42" readOnly />
+
+```text
+[open_banking.data_publishing]
+enable = false
+username="$ref{super_admin.username}@carbon.super"
+password="$ref{super_admin.password}"
+server_url = "{tcp://localhost:7612}"
+#auth_url = "{ssl://localhost:7612}"
+protocol = "Thrift"
+pool_size = 10
+queue_size = 32768
+worker_thread_count = 10
+pool_wait_time_Ms = 60000
+```
+
+`[open_banking.data_publishing]` Required
+
+Configurations related to the data publishing in API Manager.
+
+`enable`
+
+boolean Required
+
+Default: `FALSE`
+
+To enable the data publishing feature.
 
 `username`
 
@@ -1836,28 +2138,394 @@ string Required
 
 Default: `$ref{super_admin.username}@carbon.super`
 
-## Throttling JMS configurations
-
-<input name="38" type="checkbox" id="_tab_38" readOnly />
-
-```text
-[apim.throttling.jms]
-password = "$ref{super_admin.password}"
-username = "am_admin!wso2.com!carbon.super"
-```
-
-`[apim.throttling.jms]` Required
-
-Configurations related to API Manager traffic control.
-
-`username`
-
-string Required
-
-Default: `am_admin!wso2.com!carbon.super`
+Credentials to access WSO2 Streaming Integrator.
 
 `password`
 
 string Required
 
 Default: `$ref{super_admin.password}`
+
+Credentials to access WSO2 Streaming Integrator.
+
+`server_url`
+
+string Required
+
+Default: `{tcp://<SI_HOST>:7612}`
+
+The TCP port of Open Banking Business Intelligence Worker.
+
+`auth_url`
+
+string
+
+Default: `{tcp://<SI_HOST>:7612}`
+
+The SSL authentication URL of Open Banking Business Intelligence Worker. This is an optional configuration.
+
+`protocol`
+
+string Required
+
+Default: `Thrift`
+
+Possible Values: `Thrift`
+
+The protocol used to publish Open Banking data.
+
+`pool_size`
+
+string Required
+
+Default: `10`
+
+Defines the maximum numer of instances that can reside in the pool.
+
+`queue_size`
+
+string Required
+
+Default: `32768`
+
+`worker_thread_count`
+
+string Required
+
+Default: `10`
+
+`pool_wait_time_Ms`
+
+string Required
+
+Default: `60000`
+
+Defines the maximum waiting time to retrieve an instance from the pool.
+
+## Data publishing stream
+
+<input name="43" type="checkbox" id="_tab_43" readOnly />
+
+```text
+[[open_banking.data_publishing.thrift.stream]]
+name="APIInputStream"
+```
+
+`[open_banking.data_publishing.thrift.stream]` Required
+
+`name`
+
+string
+
+Default:
+
+Define a stream for publishing data.
+
+## Data publishing attributes
+
+<input name="44" type="checkbox" id="_tab_44" readOnly />
+
+```text
+[[open_banking.data_publishing.thrift.stream.attributes]]
+name="consentId"
+priority=1
+[[open_banking.data_publishing.thrift.stream.attributes]]
+name="consumerId"
+priority=2
+[[open_banking.data_publishing.thrift.stream.attributes]]
+name="clientId"
+priority=3
+[[open_banking.data_publishing.thrift.stream.attributes]]
+name="userAgent"
+priority=4
+required=true
+```
+
+`[open_banking.data_publishing.thrift.stream.attributes]` Required
+
+`name`
+
+string
+
+Default:
+
+Define an attribute for publishing data.
+
+`priority`
+
+string
+
+Default:
+
+Define the priority for a data publishing attribute.
+
+## Gateway Executors
+
+<input name="45" type="checkbox" id="_tab_45" readOnly />
+
+```text
+[[open_banking.gateway.openbanking_gateway_executors.type]]
+name = "DCR"
+```
+
+`[open_banking.gateway.openbanking_gateway_executors.type]` Required
+
+`name`
+
+string Required
+
+Default: `Default`
+
+Possible Values: `Default, DCR, Accounts, Payments`
+
+The Gateway Executors will engage in the configured API flow.
+
+## Gateway Executor configurations
+
+<input name="46" type="checkbox" id="_tab_46" readOnly />
+
+```text
+[[open_banking.gateway.openbanking_gateway_executors.type.executors]]
+name = "com.wso2.openbanking.accelerator.gateway.executor.impl.mtls.cert.validation.executor.MTLSEnforcementExecutor"
+priority = 1
+[[open_banking.gateway.openbanking_gateway_executors.type.executors]]
+name = "com.wso2.openbanking.accelerator.gateway.executor.impl.api.resource.access.validation.APIResourceAccessValidationExecutor"
+priority = 2
+[[open_banking.gateway.openbanking_gateway_executors.type.executors]]
+name = "com.wso2.openbanking.accelerator.gateway.executor.dcr.DCRExecutor"
+priority = 3
+[[open_banking.gateway.openbanking_gateway_executors.type.executors]]
+name = "com.wso2.openbanking.accelerator.gateway.executor.impl.error.handler.OBDefaultErrorHandler"
+priority = 1000
+```
+
+`[open_banking.gateway.openbanking_gateway_executors.type.executors]` Required
+
+`name`
+
+string Required
+
+Default:
+
+Possible Values: `For example, \"com.wso2.openbanking.accelerator.gateway.executor.impl.tpp.validation.executor.DCRTPPValidationExecutor\",\"com.wso2.openbanking.accelerator.gateway.executor.impl.mtls.cert.validation.executor.MTLSEnforcementExecutor\",\"com.wso2.openbanking.accelerator.gateway.executor.impl.api.resource.access.validation.APIResourceAccessValidationExecutor\",\"com.wso2.openbanking.accelerator.gateway.executor.impl.mtls.cert.validation.executor.CertRevocationValidationExecutor\"`
+
+Configure Gateway Executors for a particular API flow.
+
+`priority`
+
+string Required
+
+Default:
+
+Set the priority of the executor.
+
+## Gateway certificate management
+
+<input name="47" type="checkbox" id="_tab_47" readOnly />
+
+```text
+[open_banking.gateway.certificate_management.certificate]
+cache_expiry = 3600
+```
+
+`[open_banking.gateway.certificate_management.certificate]` Required
+
+`cache_expiry`
+
+integer Required
+
+Default: `3600`
+
+Set the cache expiry time.
+
+## Certificate revocation validation
+
+<input name="48" type="checkbox" id="_tab_48" readOnly />
+
+```text
+[open_banking.gateway.certificate_management.certificate.revocation]
+enabled = true
+retry_count = 3
+```
+
+`[open_banking.gateway.certificate_management.certificate.revocation]` Required
+
+Configurations related to certificate revocation validation
+
+`enabled`
+
+boolean Required
+
+Default: `TRUE`
+
+To enable certificate revocation validation, set the value to true.
+
+`retry_count`
+
+integer Required
+
+Default: `3`
+
+## Certificate revocation validation - proxy {#certificate-revocation-validation-proxy}
+
+<input name="49" type="checkbox" id="_tab_49" readOnly />
+
+```text
+[open_banking.gateway.certificate_management.certificate.revocation.proxy]
+enabled = false
+host = "PROXY_HOSTNAME"
+port = 8080
+```
+
+`[open_banking.gateway.certificate_management.certificate.revocation.proxy]` Required
+
+Configurations related to the proxy that performs certificate revocation validation.
+
+`enabled`
+
+boolean Required
+
+Default: `FALSE`
+
+By default, WSO2 Open Banking API Manager executes the certificate revocation validation. However, you can set a proxy and execute the certificate revocation validation. In that case, set the value to true.
+
+`host`
+
+string Required
+
+Default: `PROXY_HOSTNAME`
+
+The certificate revocation validations will happen via this proxy host.
+
+`port`
+
+integer Required
+
+Default: `8080`
+
+The certificate revocation validations will happen via this proxy port.
+
+## API consumer validation configurations
+
+<input name="50" type="checkbox" id="_tab_50" readOnly />
+
+```text
+[open_banking.gateway.tpp_management.tpp_validation]
+enabled = false
+implementation_path = ""
+cache_expiry = 3600
+```
+
+`[open_banking.gateway.tpp_management.tpp_validation]` Required
+
+Configurations related to the validation of API consumer applications.
+
+`enabled`
+
+boolean Required
+
+Default: `FALSE`
+
+Configure a custom API Consumer Validation Executor.
+
+`implementation_path`
+
+string
+
+Default:
+
+The FQN of your custom API Consumer Validation Executor.
+
+`cache_expiry`
+
+string Required
+
+Default: `3600`
+
+The expiry duration of the cache.
+
+## API consumer role validation
+
+<input name="51" type="checkbox" id="_tab_51" readOnly />
+
+```text
+[open_banking.gateway.tpp_management.psd2_role_validation]
+enabled = true
+```
+
+`[open_banking.gateway.tpp_management.psd2_role_validation]` Required
+
+`enabled`
+
+boolean Required
+
+Default: `TRUE`
+
+Possible Values: `true,false`
+
+Set this to true, to compare the PSD2 roles against the certificate of API consumer applications.
+
+## Allowed scopes for API consumer applications
+
+<input name="52" type="checkbox" id="_tab_52" readOnly />
+
+```text
+[[open_banking.gateway.tpp_management.allowed_scopes]]
+name = "accounts"
+roles = "AISP, PISP"
+[[open_banking.gateway.tpp_management.allowed_scopes]]
+name = "payments"
+roles = "PISP"
+```
+
+`[open_banking.gateway.tpp_management.allowed_scopes]` Required
+
+`name`
+
+string Required
+
+Default:
+
+Possible Values: `accounts, payments`
+
+Defines an allowed scope for API consumer applications.
+
+`roles`
+
+string Required
+
+Default:
+
+Possible Values: `AISP, PISP`
+
+The roles of API consumer applications are matched against these roles.
+
+## HTTP connection pool
+
+<input name="66" type="checkbox" id="_tab_66" readOnly />
+
+```text
+[open_banking.http_connection_pool]
+max_connections = 2000
+max_connections_per_route = 1500
+```
+
+`[open_banking.http_connection_pool]`
+
+Configure the maximum number of connections for the HTTP connection pool.
+
+`max_connections`
+
+integer
+
+Default: `2000`
+
+If not configured, the default value of 2000 will be used.
+
+`max_connections_per_route`
+
+integer
+
+Default: `1500`
+
+If not configured, the default value of 1500 will be used.

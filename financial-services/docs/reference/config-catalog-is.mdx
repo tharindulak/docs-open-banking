@@ -24,9 +24,9 @@ This document describes all the configuration parameters that are used in the Id
 hostname = "localhost"
 node_ip = "127.0.0.1"
 base_path = "https://$ref{server.hostname}:${carbon.management.port}"
-serverDetails = "WSO2 IS as KM 7.2.0"
+serverDetails = "WSO2 IS as KM 5.11.0"
 mode = "single"
-userAgent = "WSO2 IS as KM 7.2.0"
+userAgent = "WSO2 IS as KM 5.11.0"
 offset = 3
 ```
 
@@ -64,7 +64,7 @@ Defines the base path URL to access the server.
 
 string Required
 
-Default: `WSO2 IS as KM 7.2.0`
+Default: `WSO2 IS as KM 5.11.0`
 
 Description of the server.
 
@@ -82,7 +82,7 @@ Defines the type of deployment, whether it is a single node deployment or a High
 
 string Required
 
-Default: `WSO2 IS as KM 7.2.0`
+Default: `WSO2 IS as KM 5.11.0`
 
 `offset`
 
@@ -92,9 +92,39 @@ Default: `3`
 
 Port offset allows you to run multiple WSO2 products, multiple instances of a WSO2 product, or multiple WSO2 product clusters on the same server or virtual machine (VM). Port offset defines the number by which all ports defined in the runtime such as the HTTP/S ports will be offset. For example, if the default HTTP port is 9443 and the port offset is 3, the effective HTTP port will be 9446. Therefore, for each additional WSO2 product instance, set the port offset to a unique value so that they can all run on the same server without any port conflicts.
 
-## Tenant management
+## Primary keystore
 
 <input name="3" type="checkbox" id="_tab_3" readOnly />
+
+```text
+[keystore.primary]
+name = "wso2carbon.jks"
+password = "wso2carbon"
+```
+
+`[keystore.primary]` Required
+
+Configurations related to the primary keystore.
+
+`name`
+
+string Required
+
+Default: `wso2carbon.jks`
+
+The filename of the primary keystore.
+
+`password`
+
+string Required
+
+Default: `wso2carbon`
+
+The password of the keystore file
+
+## Tenant management
+
+<input name="4" type="checkbox" id="_tab_4" readOnly />
 
 ```text
 [tenant_mgt]
@@ -117,11 +147,11 @@ Enable email login for tenant users.
 
 ## Super admin
 
-<input name="4" type="checkbox" id="_tab_4" readOnly />
+<input name="5" type="checkbox" id="_tab_5" readOnly />
 
 ```text
 [super_admin]
-username = "is_admin@wso2.com"
+username = "admin@wso2.com"
 password = "wso2123"
 create_admin_account = true
 ```
@@ -134,7 +164,7 @@ This includes the configurations related to the super admin user.
 
 string Required
 
-Default: `is_admin@wso2.com`
+Default: `admin@wso2.com`
 
 The username of the super admin user.
 
@@ -158,7 +188,7 @@ Set this to true, to create a new user with the super admin details given.
 
 ## User management database
 
-<input name="5" type="checkbox" id="_tab_5" readOnly />
+<input name="6" type="checkbox" id="_tab_6" readOnly />
 
 ```text
 [realm_manager]
@@ -179,7 +209,7 @@ The datasource used by the user manager.
 
 ## User store
 
-<input name="6" type="checkbox" id="_tab_6" readOnly />
+<input name="7" type="checkbox" id="_tab_7" readOnly />
 
 ```text
 [user_store]
@@ -205,7 +235,7 @@ Default: `org.wso2.carbon.user.core.jdbc.UniqueIDJDBCUserStoreManager`
 
 ## User store properties
 
-<input name="7" type="checkbox" id="_tab_7" readOnly />
+<input name="8" type="checkbox" id="_tab_8" readOnly />
 
 ```text
 [user_store.properties]
@@ -275,7 +305,7 @@ A regular expression to validate usernames that contain an email address. By def
 
 ## Authorization manager
 
-<input name="8" type="checkbox" id="_tab_8" readOnly />
+<input name="9" type="checkbox" id="_tab_9" readOnly />
 
 ```text
 [authorization_manager]
@@ -296,7 +326,7 @@ The Authorization Manager for your server.
 
 ## Authorization manager properties
 
-<input name="9" type="checkbox" id="_tab_9" readOnly />
+<input name="10" type="checkbox" id="_tab_10" readOnly />
 
 ```text
 [authorization_manager.properties]
@@ -337,11 +367,11 @@ Enable this if there are any performance issues in the production environment. E
 
 ## Shared database configurations
 
-<input name="10" type="checkbox" id="_tab_10" readOnly />
+<input name="11" type="checkbox" id="_tab_11" readOnly />
 
 ```text
 [database.shared_db]
-url = "jdbc:mysql://localhost:3306/fs_iskm_configdb?autoReconnect=true&useSSL=false"
+url = "jdbc:mysql://localhost:3306/openbank_govdb?autoReconnect=true&useSSL=false"
 username = "root"
 password = "root"
 driver = "com.mysql.jdbc.Driver"
@@ -355,9 +385,9 @@ Configurations related to the databases shared between nodes.
 
 string Required
 
-Default: `jdbc:mysql://localhost:3306/fs_iskm_configdb?autoReconnect=true&amp;useSSL=false`
+Default: `jdbc:mysql://localhost:3306/openbank_govdb?autoReconnect=true&amp;useSSL=false`
 
-The database connection URL that your DBMS JDBC driver uses to connect to the fs_iskm_configdb database.
+The database connection URL that your DBMS JDBC driver uses to connect to the openbank_govdb database.
 
 `username`
 
@@ -387,7 +417,7 @@ The name of the JDBC driver.
 
 ## Shared database connection pool configurations
 
-<input name="11" type="checkbox" id="_tab_11" readOnly />
+<input name="12" type="checkbox" id="_tab_12" readOnly />
 
 ```text
 [database.shared_db.pool_options]
@@ -466,13 +496,13 @@ Possible Values: `true,false`
 
 Tuning parameters. Change according to the preferred database.
 
-## Identity database configurations
+## API Manager database configurations
 
-<input name="12" type="checkbox" id="_tab_12" readOnly />
+<input name="13" type="checkbox" id="_tab_13" readOnly />
 
 ```text
 [database.identity_db]
-url = "jdbc:mysql://localhost:3306/fs_identitydb?autoReconnect=true&useSSL=false"
+url = "jdbc:mysql://localhost:3306/openbank_apimgtdb?autoReconnect=true&useSSL=false"
 username = "root"
 password = "root"
 driver = "com.mysql.jdbc.Driver"
@@ -484,9 +514,9 @@ driver = "com.mysql.jdbc.Driver"
 
 string Required
 
-Default: `jdbc:mysql://localhost:3306/fs_identitydb?autoReconnect=true&amp;useSSL=false`
+Default: `jdbc:mysql://localhost:3306/openbank_apimgtdb?autoReconnect=true&amp;useSSL=false`
 
-The database connection URL that your DBMS JDBC driver uses to connect to the fs_identitydb database, which contains Identity data.
+The database connection URL that your DBMS JDBC driver uses to connect to the openbank_apimgtdb database, which contains API Manager data.
 
 `username`
 
@@ -514,9 +544,9 @@ Possible Values: `com.mysql.jdbc.Driver, com.microsoft.sqlserver.jdbc.SQLServerD
 
 The name of the JDBC driver.
 
-## Identity database connection pool configurations
+## API Manager database connection pool configurations
 
-<input name="13" type="checkbox" id="_tab_13" readOnly />
+<input name="14" type="checkbox" id="_tab_14" readOnly />
 
 ```text
 [database.identity_db.pool_options]
@@ -595,13 +625,13 @@ Possible Values: `true,false`
 
 Tuning parameters. Change according to the preferred database.
 
-## Identity config registry database
+## API Manager config registry database
 
-<input name="14" type="checkbox" id="_tab_14" readOnly />
+<input name="15" type="checkbox" id="_tab_15" readOnly />
 
 ```text
 [database.config]
-url = "jdbc:mysql://localhost:3306/fs_iskm_configdb?autoReconnect=true&useSSL=false"
+url = "jdbc:mysql://localhost:3306/openbank_iskm_configdb?autoReconnect=true&useSSL=false"
 username = "root"
 password = "root"
 driver = "com.mysql.jdbc.Driver"
@@ -609,15 +639,15 @@ driver = "com.mysql.jdbc.Driver"
 
 `[database.config]` Required
 
-Configurations related to the Identity config registry database.
+Configurations related to the API Manager config registry database.
 
 `url`
 
 string Required
 
-Default: `jdbc:mysql://localhost:3306/fs_iskm_configdb?autoReconnect=true&amp;useSSL=false`
+Default: `jdbc:mysql://localhost:3306/openbank_am_configdb?autoReconnect=true&amp;useSSL=false`
 
-The database connection URL that your DBMS JDBC driver uses to connect to the fs_iskm_configdb database.
+The database connection URL that your DBMS JDBC driver uses to connect to the openbank_am_configdb database.
 
 `username`
 
@@ -647,7 +677,7 @@ The name of the JDBC driver.
 
 ## Config registry database connection pool configurations
 
-<input name="15" type="checkbox" id="_tab_15" readOnly />
+<input name="16" type="checkbox" id="_tab_16" readOnly />
 
 ```text
 [database.config.pool_options]
@@ -728,11 +758,11 @@ Tuning parameters. Change according to the preferred database.
 
 ## User Management database configurations
 
-<input name="16" type="checkbox" id="_tab_16" readOnly />
+<input name="17" type="checkbox" id="_tab_17" readOnly />
 
 ```text
 [database.user]
-url = "jdbc:mysql://localhost:3306/fs_userdb?autoReconnect=true&useSSL=false"
+url = "jdbc:mysql://localhost:3306/openbank_userdb?autoReconnect=true&useSSL=false"
 username = "root"
 password = "root"
 driver = "com.mysql.jdbc.Driver"
@@ -744,9 +774,9 @@ driver = "com.mysql.jdbc.Driver"
 
 string Required
 
-Default: `jdbc:mysql://localhost:3306/fs_userdb?autoReconnect=true&amp;useSSL=false`
+Default: `jdbc:mysql://localhost:3306/openbank_userdb?autoReconnect=true&amp;useSSL=false`
 
-The database connection URL that your DBMS JDBC driver uses to connect to the fs_userdb database, which contains user management data.
+The database connection URL that your DBMS JDBC driver uses to connect to the openbank_userdb database, which contains user management data.
 
 `username`
 
@@ -776,7 +806,7 @@ The name of the JDBC driver.
 
 ## User Management database connection pool configurations
 
-<input name="17" type="checkbox" id="_tab_17" readOnly />
+<input name="18" type="checkbox" id="_tab_18" readOnly />
 
 ```text
 [database.user.pool_options]
@@ -855,14 +885,14 @@ Possible Values: `true,false`
 
 Tuning parameters. Change according to the preferred database.
 
-## Open Banking Consent datasource
+## User Manager datasource
 
-<input name="18" type="checkbox" id="_tab_18" readOnly />
+<input name="19" type="checkbox" id="_tab_19" readOnly />
 
 ```text
 [[datasource]]
 id="WSO2OB_DB"
-url = "jdbc:mysql://localhost:3306/fs_consentdb?autoReconnect=true&useSSL=false"
+url = "jdbc:mysql://localhost:3306/openbank_openbankingdb?autoReconnect=true&useSSL=false"
 username = "root"
 password = "root"
 driver = "com.mysql.jdbc.Driver"
@@ -880,23 +910,23 @@ pool_options.defaultAutoCommit=false
 
 `[datasource]` Required
 
-Configurations related to the open banking consent datasource.
+Configurations related to the user manager datasource.
 
 `id`
 
 string Required
 
-Default: `WSO2FS_DB`
+Default: `WSO2OB_DB`
 
-The datasource used by the open banking.
+The datasource used by the user manager.
 
 `url`
 
 string Required
 
-Default: `jdbc:mysql://localhost:3306/fs_consentdb?autoReconnect=true&amp;useSSL=false`
+Default: `jdbc:mysql://localhost:3306/openbank_userdb?autoReconnect=true&amp;useSSL=false`
 
-The database connection URL that your DBMS JDBC driver uses to connect to the fs_consentdb database.
+The database connection URL that your DBMS JDBC driver uses to connect to the openbank_userdb database.
 
 `username`
 
@@ -996,87 +1026,9 @@ Possible Values: `true,false`
 
 Tuning parameters. Change according to the preferred database.
 
-## Primary keystore
-
-<input name="19" type="checkbox" id="_tab_19" readOnly />
-
-```text
-[keystore.primary]
-name = "wso2carbon.p12"
-password = "wso2carbon"
-type="PKCS12"
-```
-
-`[keystore.primary]` Required
-
-Configurations related to the primary keystore.
-
-`file_name`
-
-string Required
-
-Default: `wso2carbon.p12`
-
-The filename of the primary keystore.
-
-`password`
-
-string Required
-
-Default: `wso2carbon`
-
-The password of the keystore file
-
-`type`
-
-string Required
-
-Default: `PKCS12`
-
-The type of the keystore file
-
-## Truststore
-
-<input name="20" type="checkbox" id="_tab_20" readOnly />
-
-```text
-[truststore]
-file_name="client-truststore.p12"
-password="wso2carbon"
-type="PKCS12"
-```
-
-`[truststore]` Required
-
-Configurations related to the truststore.
-
-`file_name`
-
-string Required
-
-Default: `client-truststore.p12`
-
-The filename of the truststore.
-
-`password`
-
-string Required
-
-Default: `wso2carbon`
-
-The password of the truststore file
-
-`type`
-
-string Required
-
-Default: `PKCS12`
-
-The type of the truststore file
-
 ## Authentication endpoints
 
-<input name="21" type="checkbox" id="_tab_21" readOnly />
+<input name="20" type="checkbox" id="_tab_20" readOnly />
 
 ```text
 [authentication.endpoints]
@@ -1102,7 +1054,7 @@ Default: `https://localhost:9446/authenticationendpoint/retry.do`
 
 ## Authentication endpoint redirect parameters
 
-<input name="22" type="checkbox" id="_tab_22" readOnly />
+<input name="21" type="checkbox" id="_tab_21" readOnly />
 
 ```text
 [authentication.endpoint.redirect_params]
@@ -1134,6 +1086,32 @@ Default: `TRUE`
 string Required
 
 Default: `["sessionDataKeyConsent","relyingParty", "authenticators", "authFailureMsg", "authFailure"]`
+
+## OAuth endpoints
+
+<input name="22" type="checkbox" id="_tab_22" readOnly />
+
+```text
+[oauth.endpoints]
+oauth2_consent_page = "${carbon.protocol}://localhost:${carbon.management.port}/ob/authenticationendpoint/oauth2_authz.do"
+oidc_consent_page = "${carbon.protocol}://localhost:${carbon.management.port}/ob/authenticationendpoint/oauth2_consent.do"
+```
+
+`[oauth.endpoints]` Required
+
+The OAuth endpoints for the Identity Server.
+
+`oauth2_consent_page`
+
+string Required
+
+Default: `${carbon.protocol}://localhost:${carbon.management.port}/ob/authenticationendpoint/oauth2_authz.do`
+
+`oidc_consent_page`
+
+string Required
+
+Default: `${carbon.protocol}://localhost:${carbon.management.port}/ob/authenticationendpoint/oauth2_consent.do`
 
 ## SMS OTP Authenticator parameters
 
@@ -1176,166 +1154,1017 @@ Default: `60`
 
 Set up the expiration time for the token.
 
-## OAuth endpoints
+## Custom Authenticator
 
 <input name="24" type="checkbox" id="_tab_24" readOnly />
 
 ```text
-[oauth.endpoints.v2]
-oauth2_consent_page = "${carbon.protocol}://localhost:${carbon.management.port}/fs/authenticationendpoint/oauth2_authz.do"
-oidc_consent_page = "${carbon.protocol}://localhost:${carbon.management.port}/fs/authenticationendpoint/oauth2_consent.do"
+[[authentication.custom_authenticator]]
+name = "IdentifierExecutor"
+parameters.ValidateUsername = true
+parameters.throttleLimit = 3
+parameters.throttleTimePeriod = 300
+parameters.authRequestURL = "https://localhost:9446/api/identity/auth/v1.1/data/AuthRequestKey/"
 ```
 
-`[oauth.endpoints.v2]` Required
+`[authentication.custom_authenticator]` Required
 
-The OAuth endpoints for the Identity Server.
-
-`oauth2_consent_page`
+`name`
 
 string Required
 
-Default: `${carbon.protocol}://localhost:${carbon.management.port}/fs/authenticationendpoint/oauth2_authz.do`
+Default: `IdentifierExecutor`
 
-`oidc_consent_page`
+The name of the custom authenticator.
+
+`parameters.ValidateUsername`
 
 string Required
 
-Default: `${carbon.protocol}://localhost:${carbon.management.port}/fs/authenticationendpoint/oauth2_consent.do`
+Default: `TRUE`
 
-## OAuth DCR
+If you want your username validated first, the value of this parameter should be changed to true.
+
+`parameters.throttleLimit`
+
+string Required
+
+Default: `3`
+
+Configure the throttle limit.
+
+`parameters.throttleTimePeriod`
+
+string Required
+
+Default: `300`
+
+Configure the time period for throttling.
+
+`parameters.authRequestURL`
+
+string Required
+
+Default: `https://localhost:9446/api/identity/auth/v1.1/data/AuthRequestKey/`
+
+The authorization request URL.
+
+## Signing certificate configurations
 
 <input name="25" type="checkbox" id="_tab_25" readOnly />
 
 ```text
-[oauth.dcr]
-enable_fapi_enforcement=true
-ssa_jkws= "https://keystore.openbankingtest.org.uk/0015800001HQQrZAAX/0015800001HQQrZAAX.jwks"
+[open_banking.identity]
+signing_certificate_kid="123"
+client_transport_cert_as_header_enabled = true
 ```
 
-`[oauth.dcr]`
+`[open_banking.identity]` Required
 
-OAuth DCR Endpoint configurations
+`signing_certificate_kid`
 
-`enable_fapi_enforcement`
+string Required
 
-boolean
+Default: `123`
 
-Default: `true`
+Configure the key ID (kid) value for the signing certificate of the bank. The same value is configured as the kid of the ID Token.
 
-By default, all applications created via OAuth DCR endpoint will be FAPI enforced. If you wnt to change it change this to false
+`client_transport_cert_as_header_enabled`
 
-`ssa_jkws`
+boolean Required
 
-string
+Default: `TRUE`
 
-Default: `https://keystore.openbankingtest.org.uk/0015800001HQQrZAAX/0015800001HQQrZAAX.jwks`
+Possible Values: `true,false`
 
-Add the org jwks endpoint to validate the signature of the SSA
+To send the client certificate as a transport header, set this to true.
 
-## Accelerator Service Extension Configuration
+## Consent ID claim
 
 <input name="26" type="checkbox" id="_tab_26" readOnly />
 
 ```text
-[financial_services.extensions.endpoint]
-enabled = false
-allowed_extensions = ["pre_process_client_creation", "pre_process_client_update", "pre_process_client_retrieval",
-"pre_process_consent_creation", "enrich_consent_creation_response", "pre_process_consent_file_upload",
-"enrich_consent_file_response", "pre_process_consent_retrieval", "validate_consent_file_retrieval",
-"pre_process_consent_revoke", "enrich_consent_search_response", "populate_consent_authorize_screen",
-"persist_authorized_consent", "validate_consent_access", "issue_refresh_token", "validate_authorization_request",
-"validate_event_subscription", "enrich_event_subscription_response", "validate_event_creation",
-"validate_event_polling", "enrich_event_polling_response", "map_accelerator_error_response"]
-base_url = ""
-retry_count = 5
-connect_timeout = 5
-read_timeout = 5
+[open_banking.identity]
+consent_id_claim_name="consent_id"
 ```
 
-`[financial_services.extensions.endpoint]`
+`[open_banking.identity]`
 
-`enabled`
-
-boolean
-
-Default: `false`
-
-This configuration will enable the Accelerator Service Extension
-
-`allowed_extensions`
+`consent_id_claim_name`
 
 string
 
-Default: `["pre_process_client_creation", "pre_process_client_update", "pre_process_client_retrieval", "pre_process_consent_creation", "enrich_consent_creation_response", "pre_process_consent_file_upload", "enrich_consent_file_response", "pre_process_consent_retrieval", "validate_consent_file_retrieval", "pre_process_consent_revoke", "enrich_consent_search_response", "populate_consent_authorize_screen", "persist_authorized_consent", "validate_consent_access", "issue_refresh_token", "validate_authorization_request", "validate_event_subscription", "enrich_event_subscription_response", "validate_event_creation", "validate_event_polling", "enrich_event_polling_response", "map_accelerator_error_response"]`
+Default: `consent_id`
 
-This configuration will be used to enable the required extension points
+By default, the consent ID is available in the JWT token under the custom claim name;consent_id. To change the default claim name, use this configuration.
 
-`base_url`
-
-string
-
-Base URL of the implemented Accelerator Extensions
-
-`retry_count`
-
-integer
-
-Default: `5`
-
-This configuration will be used to configure the no of retry counts for the extension points
-
-`connect_timeout`
-
-integer
-
-Default: `5`
-
-This configuration will be used to configure the connection timeout for the extension points
-
-`read_timeout`
-
-integer
-
-Default: `5`
-
-This configuration will be used to configure the read timeout for the extension points
-
-## Accelerator Service Extension Endpoint Security Configuration
+## Adaptive authentication event publisher
 
 <input name="27" type="checkbox" id="_tab_27" readOnly />
 
 ```text
-[financial_services.extensions.endpoint.security]
-type = "Basic-Auth"
-username = ""
-password = ""
+[authentication.adaptive.event_publisher]
+url = "http://localhost:8006/"
 ```
 
-`[financial_services.extensions.endpoint.security]`
+`[authentication.adaptive.event_publisher]` Required
 
-`username`
+`url`
 
-string
+string Required
 
-Basic Auth username of the Accelerator Extension
+Default: `http://localhost:8006/`
 
-`password`
+Configure the event publisher URL for adaptive authentication with the hostname of the Identity Server.
 
-string
-
-Basic Auth password of the Accelerator Extension
-
-## Primary authenticator
+## Data publishing configurations
 
 <input name="28" type="checkbox" id="_tab_28" readOnly />
 
 ```text
-[financial_services.app_registration.sca.primaryauth]
-name = ""
-display = ""
+[open_banking.data_publishing]
+enable = false
+username="$ref{super_admin.username}@carbon.super"
+password="$ref{super_admin.password}"
+server_url = "{tcp://localhost:7612}"
+#auth_url = "{ssl://localhost:7612}"
+protocol = "Thrift"
+pool_size = 10
+queue_size = 32768
+worker_thread_count = 10
+pool_wait_time_Ms = 60000
+auth_data_publisher = "com.wso2.openbanking.accelerator.authentication.data.publisher.extension.DefaultAuthDataPublisher"
 ```
 
-`[financial_services.app_registration.sca.primaryauth]`
+`[open_banking.data_publishing]` Required
+
+Configurations related to the data publishing in Identity Server.
+
+`enable`
+
+boolean Required
+
+Default: `FALSE`
+
+To enable the data publishing feature.
+
+`username`
+
+string Required
+
+Default: `$ref{super_admin.username}@carbon.super`
+
+Credentials to access WSO2 Streaming Integrator.
+
+`password`
+
+string Required
+
+Default: `$ref{super_admin.password}`
+
+Credentials to access WSO2 Streaming Integrator.
+
+`server_url`
+
+string Required
+
+Default: `{tcp://<SI_HOST>:7612}`
+
+Possible Values: `{tcp://<SI_NODE_1_HOST>:7612, tcp://<SI_NODE_2_HOST>:7612, ...}`
+
+The TCP port of Open Banking Business Intelligence Worker. If the setup mode is HA, configure TCP ports of all the nodes comma seperated.
+
+`auth_url`
+
+string
+
+Default: `{tcp://<SI_HOST>:7612}`
+
+The SSL authentication URL of Open Banking Business Intelligence Worker. This is an optional configuration.
+
+`protocol`
+
+string Required
+
+Default: `Thrift`
+
+Possible Values: `Thrift`
+
+The protocol used to publish Open Banking data.
+
+`pool_size`
+
+string Required
+
+Default: `10`
+
+Defines the maximum number of instances that can reside in the pool.
+
+`queue_size`
+
+string Required
+
+Default: `32768`
+
+`worker_thread_count`
+
+string Required
+
+Default: `10`
+
+`pool_wait_time_Ms`
+
+string Required
+
+Default: `60000`
+
+Defines the maximum waiting time to retrieve an instance from the pool.
+
+`auth_data_publisher`
+
+string
+
+Default: `{ssl://<SI_HOST>:7612}`
+
+Configures a custom data publishing class using its FQN.
+
+## Data publishing stream
+
+<input name="29" type="checkbox" id="_tab_29" readOnly />
+
+```text
+[[open_banking.data_publishing.thrift.stream]]
+name="AuthenticationInputStream"
+```
+
+`[open_banking.data_publishing.thrift.stream]` Required
+
+`name`
+
+string
+
+Default: `AuthenticationInputStream`
+
+Define a stream for publishing data.
+
+## Data publishing attributes
+
+<input name="30" type="checkbox" id="_tab_30" readOnly />
+
+```text
+[[open_banking.data_publishing.thrift.stream.attributes]]
+name="userId"
+priority=1
+[[open_banking.data_publishing.thrift.stream.attributes]]
+name="authenticationStep"
+priority=2
+[[open_banking.data_publishing.thrift.stream.attributes]]
+name="authenticationStatus"
+priority=3
+required=true
+[[open_banking.data_publishing.thrift.stream.attributes]]
+name="authenticationApproach"
+priority=4
+required=true
+[[open_banking.data_publishing.thrift.stream.attributes]]
+name="psuChannel"
+priority=5
+[[open_banking.data_publishing.thrift.stream.attributes]]
+name="timestamp"
+priority=6
+required=true
+type="long"
+```
+
+`[open_banking.data_publishing.thrift.stream.attributes]` Required
+
+`name`
+
+string
+
+Default:
+
+Define an attribute for publishing data.
+
+`priority`
+
+string
+
+Default:
+
+Define the priority for a data publishing attribute.
+
+## Regulatory issuer - DCR {#regulatory-issuer-dcr}
+
+<input name="31" type="checkbox" id="_tab_31" readOnly />
+
+```text
+[[open_banking.dcr.regulatory_issuers.iss]]
+name = "OpenBanking Ltd"
+```
+
+`[open_banking.dcr.regulatory_issuers.iss]` Required
+
+`name`
+
+string Required
+
+Default:
+
+Configure the issuer (iss) of the SSA in the following tag. If not specified, the application is considered a non-regulatory application.
+
+## Dynamic Client Registrations (DCR) configurations
+
+<input name="32" type="checkbox" id="_tab_32" readOnly />
+
+```text
+[open_banking.dcr]
+validator = "com.wso2.openbanking.accelerator.identity.dcr.validation.DefaultRegistrationValidatorImpl"
+jwks_url_sandbox = "https://keystore.openbankingtest.org.uk/0015800001HQQrZAAX/9b5usDpbNtmxDcTzs7GzKp.jwks"
+jwks_url_production = "https://keystore.openbankingtest.org.uk/0015800001HQQrZAAX/9b5usDpbNtmxDcTzs7GzKp.jwks"
+applicationupdater = "com.wso2.openbanking.accelerator.identity.listener.application.ApplicationUpdaterImpl"
+use_softwareIdForAppName = true
+```
+
+`[open_banking.dcr]` Required
+
+Configurations for Dynamic Client Registration.
+
+`validator`
+
+string Required
+
+Default:
+
+Configure the issuer (iss) of the SSA in the following tag. If not specified, the application is considered a non-regulatory application. Configure your custom DCR validator here. By default, the DefaultRegistrationValidatorImpl class is configured as given here.
+
+`jwks_url_sandbox`
+
+string Required
+
+Default: `com.wso2.openbanking.accelerator.identity.dcr.validation.DefaultRegistrationValidatorImpl`
+
+`jwks_url_production`
+
+string Required
+
+Default: `The JWKS endpoints that are used for validating the SSA signature.`
+
+`applicationupdater`
+
+string Required
+
+Default:
+
+If you have modified the Application Listener interface, for example, adding OAuth 2.0 properties or for data publishing requirements, the Application Listener invokes methods that are overridden from a class. Configure the following tag with the name of the class that is extended to do so.
+
+`use_softwareIdForAppName`
+
+boolean Required
+
+Default: `If you have modified the Application Listener interface, for example, adding OAuth 2.0 properties or for data publishing requirements, the Application Listener invokes methods that are overridden from a class. Configure the following tag with the name of the class that is extended to do so.`
+
+Possible Values: `true,false`
+
+Sets the software id as the name of the application.
+
+## JWKS retrieval connection timeout
+
+<input name="33" type="checkbox" id="_tab_33" readOnly />
+
+```text
+[open_banking.dcr.jwks_retriever]
+connection_timeout = 3000
+read_timeout = 3000
+```
+
+`[open_banking.dcr.jwks_retriever]` Required
+
+When retrieving the JSON web keys related to the API consumer application, the time-out values when connecting to the JWKS endpoint of the Open Banking directory.
+
+`connection_timeout`
+
+integer Required
+
+Default: `3000`
+
+`read_timeout`
+
+integer Required
+
+Default: `3000`
+
+## DCR request - configure issuer parameter {#dcr-request-configure-issuer-parameter}
+
+<input name="34" type="checkbox" id="_tab_34" readOnly />
+
+```text
+[open_banking.dcr.registration.issuer]
+allowed_values = ["value1, value2, value3”]
+#required = false
+```
+
+`[open_banking.dcr.registration.issuer]`
+
+`allowed_values`
+
+string Required
+
+Default:
+
+According to your specification different types of values are allowed in the registration request. WSO2 Open Banking Accelerator provides the capability to configure the parameters and the values they allow. By default, this is a mandatory request parameter in the DCR registration request.
+
+`required`
+
+boolean
+
+Default:
+
+Possible Values: `true,false`
+
+If you want to make this request parameter optional, add this tag and set it to false. Otherwise, this is considered as a mandatory request parameter in the DCR request.
+
+## DCR request - configure audience parameter {#dcr-request-configure-audience-parameter}
+
+<input name="35" type="checkbox" id="_tab_35" readOnly />
+
+```text
+[open_banking.dcr.registration.audience]
+allowed_values = ["value1, value2, value3”]
+#required = false
+```
+
+`[open_banking.dcr.registration.audience]`
+
+`allowed_values`
+
+string Required
+
+Default:
+
+According to your specification different types of values are allowed in the registration request. WSO2 Open Banking Accelerator provides the capability to configure the parameters and the values they allow. By default, this is a mandatory request parameter in the DCR registration request.
+
+`required`
+
+boolean
+
+Default:
+
+Possible Values: `true,false`
+
+If you want to make this request parameter optional, add this tag and set it to false. Otherwise, this is considered as a mandatory request parameter in the DCR request.
+
+## DCR request - configure token_endpoint_authentication parameter {#dcr-request-configure-tokenendpointauthentication-parameter}
+
+<input name="36" type="checkbox" id="_tab_36" readOnly />
+
+```text
+[open_banking.dcr.registration.audience]
+allowed_values = ["value1, value2, value3”]
+#required = false
+```
+
+`[open_banking.dcr.registration.token_endpoint_authentication]`
+
+`allowed_values`
+
+string Required
+
+Default:
+
+According to your specification different types of values are allowed in the registration request. WSO2 Open Banking Accelerator provides the capability to configure the parameters and the values they allow. By default, this is a mandatory request parameter in the DCR registration request.
+
+`required`
+
+boolean
+
+Default:
+
+Possible Values: `true,false`
+
+If you want to make this request parameter optional, add this tag and set it to false. Otherwise, this is considered as a mandatory request parameter in the DCR request.
+
+## DCR request - configure id_token_signed_response_alg parameter {#dcr-request-configure-idtokensignedresponsealg-parameter}
+
+<input name="37" type="checkbox" id="_tab_37" readOnly />
+
+```text
+[open_banking.dcr.registration.id_token_signed_response_alg]
+allowed_values = ["value1, value2, value3”]
+#required = false
+```
+
+`[open_banking.dcr.registration.id_token_signed_response_alg]`
+
+`allowed_values`
+
+string Required
+
+Default:
+
+According to your specification different types of values are allowed in the registration request. WSO2 Open Banking Accelerator provides the capability to configure the parameters and the values they allow. By default, this is a mandatory request parameter in the DCR registration request.
+
+`required`
+
+boolean
+
+Default:
+
+Possible Values: `true,false`
+
+If you want to make this request parameter optional, add this tag and set it to false. Otherwise, this is considered as a mandatory request parameter in the DCR request.
+
+## DCR request - configure software_statement parameter {#dcr-request-configure-software_statement-parameter}
+
+<input name="38" type="checkbox" id="_tab_38" readOnly />
+
+```text
+[open_banking.dcr.registration.software_statement]
+allowed_values = ["value1, value2, value3”]
+#required = false
+```
+
+`[open_banking.dcr.registration.software_statement]`
+
+`allowed_values`
+
+string Required
+
+Default:
+
+According to your specification different types of values are allowed in the registration request. WSO2 Open Banking Accelerator provides the capability to configure the parameters and the values they allow. By default, this is a mandatory request parameter in the DCR registration request.
+
+`required`
+
+boolean
+
+Default:
+
+Possible Values: `true,false`
+
+If you want to make this request parameter optional, add this tag and set it to false. Otherwise, this is considered as a mandatory request parameter in the DCR request.
+
+## DCR request - configure grant_types parameter {#dcr-request-configure-grant_types-parameter}
+
+<input name="39" type="checkbox" id="_tab_39" readOnly />
+
+```text
+[open_banking.dcr.registration.grant_types]
+allowed_values = ["value1, value2, value3”]
+#required = false
+```
+
+`[open_banking.dcr.registration.grant_types]`
+
+`allowed_values`
+
+string Required
+
+Default:
+
+According to your specification different types of values are allowed in the registration request. WSO2 Open Banking Accelerator provides the capability to configure the parameters and the values they allow. By default, this is a mandatory request parameter in the DCR registration request.
+
+`required`
+
+boolean
+
+Default:
+
+Possible Values: `true,false`
+
+If you want to make this request parameter optional, add this tag and set it to false. Otherwise, this is considered as a mandatory request parameter in the DCR request.
+
+## DCR request - configure scope parameter {#dcr-request-configure-scope-parameter}
+
+<input name="40" type="checkbox" id="_tab_40" readOnly />
+
+```text
+[open_banking.dcr.registration.scope]
+allowed_values = ["accounts", "payments"]
+#required = true
+```
+
+`[open_banking.dcr.registration.scope]`
+
+`allowed_values`
+
+string Required
+
+Default:
+
+According to your specification different types of values are allowed in the registration request. WSO2 Open Banking Accelerator provides the capability to configure the parameters and the values they allow. By default, this is an optional request parameter in the DCR registration request.
+
+`required`
+
+boolean
+
+Default:
+
+Possible Values: `true,false`
+
+If you want to make this request parameter mandatory, add this tag and set it to true. Otherwise, this is considered an optional request parameter in the DCR request.
+
+## DCR request - configure application_type parameter {#dcr-request-configure-application_type-parameter}
+
+<input name="41" type="checkbox" id="_tab_41" readOnly />
+
+```text
+[open_banking.dcr.registration.application_type]
+allowed_values = ["web"]
+#required = true
+```
+
+`[open_banking.dcr.registration.application_type]`
+
+`allowed_values`
+
+string Required
+
+Default:
+
+According to your specification different types of values are allowed in the registration request. WSO2 Open Banking Accelerator provides the capability to configure the parameters and the values they allow. By default, this is an optional request parameter in the DCR registration request.
+
+`required`
+
+boolean
+
+Default:
+
+Possible Values: `true,false`
+
+If you want to make this request parameter mandatory, add this tag and set it to true. Otherwise, this is considered an optional request parameter in the DCR request.
+
+## DCR request - configure response_types parameter {#dcr-request-configure-response_types-parameter}
+
+<input name="42" type="checkbox" id="_tab_42" readOnly />
+
+```text
+[open_banking.dcr.registration.response_types]
+allowed_values = ["value1, value2, value3”]
+#required = true
+```
+
+`[open_banking.dcr.registration.response_types]`
+
+`allowed_values`
+
+string Required
+
+Default:
+
+According to your specification different types of values are allowed in the registration request. WSO2 Open Banking Accelerator provides the capability to configure the parameters and the values they allow. By default, this is an optional request parameter in the DCR registration request.
+
+`required`
+
+boolean
+
+Default:
+
+Possible Values: `true,false`
+
+If you want to make this request parameter mandatory, add this tag and set it to true. Otherwise, this is considered an optional request parameter in the DCR request.
+
+## DCR request - configure callback_uris parameter {#dcr-request-configure-callback_uris-parameter}
+
+<input name="43" type="checkbox" id="_tab_43" readOnly />
+
+```text
+[open_banking.dcr.registration.callback_uris]
+allowed_values = ["value1, value2, value3”]
+#required = true
+```
+
+`[open_banking.dcr.registration.callback_uris]`
+
+`allowed_values`
+
+string Required
+
+Default:
+
+According to your specification different types of values are allowed in the registration request. WSO2 Open Banking Accelerator provides the capability to configure the parameters and the values they allow. By default, this is an optional request parameter in the DCR registration request.
+
+`required`
+
+boolean
+
+Default:
+
+Possible Values: `true,false`
+
+If you want to make this request parameter mandatory, add this tag and set it to true. Otherwise, this is considered an optional request parameter in the DCR request.
+
+## DCR request - configure token_endpoint_auth_signing_alg parameter {#dcr-request-configure-tokenendpointauthsigningalg-parameter}
+
+<input name="44" type="checkbox" id="_tab_44" readOnly />
+
+```text
+[open_banking.dcr.registration.token_endpoint_auth_signing_alg]
+allowed_values = ["value1, value2, value3”]
+#required = true
+```
+
+`[open_banking.dcr.registration.token_endpoint_auth_signing_alg]`
+
+`allowed_values`
+
+string Required
+
+Default:
+
+According to your specification different types of values are allowed in the registration request. WSO2 Open Banking Accelerator provides the capability to configure the parameters and the values they allow. By default, this is an optional request parameter in the DCR registration request.
+
+`required`
+
+boolean
+
+Default:
+
+Possible Values: `true,false`
+
+If you want to make this request parameter mandatory, add this tag and set it to true. Otherwise, this is considered an optional request parameter in the DCR request.
+
+## DCR request - configure software_id parameter {#dcr-request-configure-software_id-parameter}
+
+<input name="45" type="checkbox" id="_tab_45" readOnly />
+
+```text
+[open_banking.dcr.registration.software_id]
+allowed_values = ["value1, value2, value3”]
+#required = true
+```
+
+`[open_banking.dcr.registration.software_id]`
+
+`allowed_values`
+
+string Required
+
+Default:
+
+According to your specification different types of values are allowed in the registration request. WSO2 Open Banking Accelerator provides the capability to configure the parameters and the values they allow. By default, this is an optional request parameter in the DCR registration request.
+
+`required`
+
+boolean
+
+Default:
+
+Possible Values: `true,false`
+
+If you want to make this request parameter mandatory, add this tag and set it to true. Otherwise, this is considered an optional request parameter in the DCR request.
+
+## DCR request - configure id_token_encryption_response_alg parameter {#dcr-request-configure-idtokenencryptionresponsealg-parameter}
+
+<input name="46" type="checkbox" id="_tab_46" readOnly />
+
+```text
+[open_banking.dcr.registration.id_token_encryption_response_alg]
+allowed_values = ["value1, value2, value3”]
+#required = true
+```
+
+`[open_banking.dcr.registration.id_token_encryption_response_alg]`
+
+`allowed_values`
+
+string Required
+
+Default:
+
+According to your specification different types of values are allowed in the registration request. WSO2 Open Banking Accelerator provides the capability to configure the parameters and the values they allow. By default, this is an optional request parameter in the DCR registration request.
+
+`required`
+
+boolean
+
+Default:
+
+Possible Values: `true,false`
+
+If you want to make this request parameter mandatory, add this tag and set it to true. Otherwise, this is considered an optional request parameter in the DCR request.
+
+## DCR request - configure id_token_encryption_response_enc parameter {#dcr-request-configure-idtokenencryptionresponseenc-parameter}
+
+<input name="47" type="checkbox" id="_tab_47" readOnly />
+
+```text
+[open_banking.dcr.registration.id_token_encryption_response_enc]
+allowed_values = ["value1, value2, value3”]
+#required = true
+```
+
+`[open_banking.dcr.registration.id_token_encryption_response_enc]`
+
+`allowed_values`
+
+string Required
+
+Default:
+
+According to your specification different types of values are allowed in the registration request. WSO2 Open Banking Accelerator provides the capability to configure the parameters and the values they allow. By default, this is an optional request parameter in the DCR registration request.
+
+`required`
+
+boolean
+
+Default:
+
+Possible Values: `true,false`
+
+If you want to make this request parameter mandatory, add this tag and set it to true. Otherwise, this is considered an optional request parameter in the DCR request.
+
+## DCR request - configure request_object_signing_algorithm parameter {#dcr-request-configure-requestobjectsigning_algorithm-parameter}
+
+<input name="48" type="checkbox" id="_tab_48" readOnly />
+
+```text
+[open_banking.dcr.registration.request_object_signing_algorithm]
+allowed_values = ["value1, value2, value3”]
+#required = true
+```
+
+`[open_banking.dcr.registration.request_object_signing_algorithm]`
+
+`allowed_values`
+
+string Required
+
+Default:
+
+According to your specification different types of values are allowed in the registration request. WSO2 Open Banking Accelerator provides the capability to configure the parameters and the values they allow. By default, this is an optional request parameter in the DCR registration request.
+
+`required`
+
+boolean
+
+Default:
+
+Possible Values: `true,false`
+
+If you want to make this request parameter mandatory, add this tag and set it to true. Otherwise, this is considered an optional request parameter in the DCR request.
+
+## DCR request - configure tls_client_auth_subject_dn parameter {#dcr-request-configure-tlsclientauthsubjectdn-parameter}
+
+<input name="49" type="checkbox" id="_tab_49" readOnly />
+
+```text
+[open_banking.dcr.registration.tls_client_auth_subject_dn]
+allowed_values = ["value1, value2, value3”]
+#required = true
+```
+
+`[open_banking.dcr.registration.tls_client_auth_subject_dn]`
+
+`allowed_values`
+
+string Required
+
+Default:
+
+According to your specification different types of values are allowed in the registration request. WSO2 Open Banking Accelerator provides the capability to configure the parameters and the values they allow. By default, this is an optional request parameter in the DCR registration request.
+
+`required`
+
+boolean
+
+Default:
+
+Possible Values: `true,false`
+
+If you want to make this request parameter mandatory, add this tag and set it to true. Otherwise, this is considered an optional request parameter in the DCR request.
+
+## DCR request - configure backchannel_token_delivery_mode parameter {#dcr-request-configure-backchanneltokendelivery_mode-parameter}
+
+<input name="50" type="checkbox" id="_tab_50" readOnly />
+
+```text
+[open_banking.dcr.registration.backchannel_token_delivery_mode]
+allowed_values = ["value1, value2, value3”]
+#required = true
+```
+
+`[open_banking.dcr.registration.backchannel_token_delivery_mode]`
+
+`allowed_values`
+
+string Required
+
+Default:
+
+According to your specification different types of values are allowed in the registration request. WSO2 Open Banking Accelerator provides the capability to configure the parameters and the values they allow. By default, this is an optional request parameter in the DCR registration request.
+
+`required`
+
+boolean
+
+Default:
+
+Possible Values: `true,false`
+
+If you want to make this request parameter mandatory, add this tag and set it to true. Otherwise, this is considered an optional request parameter in the DCR request.
+
+## DCR request - configure backchannel_authentication_request_signing_alg parameter {#dcr-request-configure-backchannelauthenticationrequestsigningalg-parameter}
+
+<input name="51" type="checkbox" id="_tab_51" readOnly />
+
+```text
+[open_banking.dcr.registration.backchannel_authentication_request_signing_alg g]
+allowed_values = ["value1, value2, value3”]
+#required = true
+```
+
+`[open_banking.dcr.registration.backchannel_authentication_request_signing_alg]`
+
+`allowed_values`
+
+string Required
+
+Default:
+
+According to your specification different types of values are allowed in the registration request. WSO2 Open Banking Accelerator provides the capability to configure the parameters and the values they allow. By default, this is an optional request parameter in the DCR registration request.
+
+`required`
+
+boolean
+
+Default:
+
+Possible Values: `true,false`
+
+If you want to make this request parameter mandatory, add this tag and set it to true. Otherwise, this is considered an optional request parameter in the DCR request.
+
+## DCR request - configure backchannel_client_notification_endpoint parameter {#dcr-request-configure-backchannelclientnotification_endpoint-parameter}
+
+<input name="52" type="checkbox" id="_tab_52" readOnly />
+
+```text
+[open_banking.dcr.registration.backchannel_client_notification_endpoint]
+allowed_values = ["value1, value2, value3”]
+#required = true
+```
+
+`[open_banking.dcr.registration.backchannel_client_notification_endpoint]`
+
+`allowed_values`
+
+string Required
+
+Default:
+
+According to your specification different types of values are allowed in the registration request. WSO2 Open Banking Accelerator provides the capability to configure the parameters and the values they allow. By default, this is an optional request parameter in the DCR registration request.
+
+`required`
+
+boolean
+
+Default:
+
+Possible Values: `true,false`
+
+If you want to make this request parameter mandatory, add this tag and set it to true. Otherwise, this is considered an optional request parameter in the DCR request.
+
+## DCR request - configure backchannel_user_code_parameter_supported parameter {#dcr-request-configure-backchannelusercodeparametersupported-parameter}
+
+<input name="53" type="checkbox" id="_tab_53" readOnly />
+
+```text
+[open_banking.dcr.registration.backchannel_user_code_parameter_supported]
+allowed_values = ["value1, value2, value3”]
+#required = true
+```
+
+`[open_banking.dcr.registration.backchannel_user_code_parameter_supported]`
+
+`allowed_values`
+
+string Required
+
+Default:
+
+According to your specification different types of values are allowed in the registration request. WSO2 Open Banking Accelerator provides the capability to configure the parameters and the values they allow. By default, this is an optional request parameter in the DCR registration request.
+
+`required`
+
+boolean
+
+Default:
+
+Possible Values: `true,false`
+
+If you want to make this request parameter mandatory, add this tag and set it to true. Otherwise, this is considered an optional request parameter in the DCR request.
+
+## Primary authenticator
+
+<input name="54" type="checkbox" id="_tab_54" readOnly />
+
+```text
+[open_banking.sca.primaryauth]
+name = "IdentifierExecutor"
+display = "ob-identifier-first"
+```
+
+`[open_banking.sca.primaryauth]`
 
 Configures the primary authenticator.
 
@@ -1355,19 +2184,18 @@ string
 
 Default:
 
-Possible Values: `basic,identifier-first`
+Possible Values: `basic,ob-identifier-first`
 
 ## Identity provider configurations
 
-<input name="29" type="checkbox" id="_tab_29" readOnly />
+<input name="55" type="checkbox" id="_tab_55" readOnly />
 
 ```text
-[financial_services.app_registration.sca.idp]
-name = "FacebookIdP"
-step = 2
+#[open_banking.sca.idp]
+#name = "FacebookIdP"
 ```
 
-`[financial_services.app_registration.sca.idp]`
+`[open_banking.sca.idp]`
 
 `name`
 
@@ -1377,456 +2205,97 @@ Default:
 
 Configure the identity provider as the secondary authentication method. The example given here is for SMS OTP.
 
-`step`
+## Signature validation algorithms
 
-integer
-
-Default:
-
-Configure the at which step the identity provider should be configured.
-
-## Conditional Auth Script configurations
-
-<input name="30" type="checkbox" id="_tab_30" readOnly />
+<input name="56" type="checkbox" id="_tab_56" readOnly />
 
 ```text
-[financial_services.app_registration.conditional.auth.script]
-filename=""
+[[open_banking.signature_validation.allowed_algorithms.algorithms]]
+algorithm = "PS256"
 ```
 
-`[financial_services.app_registration.conditional.auth.script]`
+`[open_banking.signature_validation.allowed_algorithms.algorithms]`
 
-`filename`
-
-string
-
-Default:
-
-Put the conditional auth script inside the
-
-\<iam_home\>/repository/conf folder and config the file name.
-
-## Open Banking DCR - Configure Request Parameters {#open-banking-dcr-configure-request-parameters}
-
-<input name="31" type="checkbox" id="_tab_31" readOnly />
-
-```text
-[[financial_services.app_registration.dcr.params]]
-name = "SoftwareId"
-key = "software_id"
-required = false
-include_in_response = true
-```
-
-`[[financial_services.app_registration.dcr.params]]`
-
-`name`
+`algorithm`
 
 string
 
-Sample: `Scope`
+Default: `PS256`
 
-Name of the DCR Request Attribute
-
-`key`
-
-string
-
-Sample: `scope`
-
-Key of the paramater in the DCR Request Attribute
-
-`required`
-
-boolean
-
-Sample: `false`
-
-If you want to make this request parameter mandatory, add this tag and set it to true. Otherwise, this is considered as a optional request parameter in the DCR request.
-
-`include_in_response`
-
-boolean
-
-Sample: `true`
-
-If you want to include this parameter in the DCR Response, set this tag to true.
-
-`allowed_values`
-
-string
-
-Sample: `["accounts", "payments", "fundsconfirmations"]`
-
-According to your specification different types of values are allowed in the registration request. WSO2 Open Banking Accelerator provides the capability to configure the parameters and the values they allow.
-
-Following attributes are by default included in deployment.toml file. You can modify these according to the specification. Also can add new configurations for parameters that are not specified below
-
-```text
-[[financial_services.app_registration.dcr.params]]
-name = "SoftwareId"
-key = "software_id"
-required = false
-include_in_response = true
-
-[[financial_services.app_registration.dcr.params]]
-name = "Scope"
-key = "scope"
-required = true
-include_in_response = true
-allowed_values = ["accounts", "payments", "fundsconfirmations"]
-
-[[financial_services.app_registration.dcr.params]]
-name = "RedirectUris"
-key = "redirect_uris"
-required = true
-include_in_response = true
-
-[[financial_services.app_registration.dcr.params]]
-name = "GrantTypes"
-key = "grant_types"
-required = true
-include_in_response = true
-allowed_values = ["authorization_code", "refresh_token", "client_credentials"]
-
-[[financial_services.app_registration.dcr.params]]
-name = "SoftwareStatement"
-key = "software_statement"
-required = true
-include_in_response = true
-
-[[financial_services.app_registration.dcr.params]]
-name = "ApplicationType"
-key = "application_type"
-required = true
-include_in_response = true
-allowed_values = ["web"]
-
-[[financial_services.app_registration.dcr.params]]
-name = "TokenEndpointAuthMethod"
-key = "token_endpoint_auth_method"
-required = true
-include_in_response = true
-
-[[financial_services.app_registration.dcr.params]]
-name = "IdTokenSignatureAlgorithm"
-key = "id_token_signed_response_alg"
-required = true
-include_in_response = true
-
-[[financial_services.app_registration.dcr.params]]
-name = "RequestObjectSignatureAlgorithm"
-key = "request_object_signing_alg"
-required = true
-include_in_response = true
-
-[[financial_services.app_registration.dcr.params]]
-name = "Iss"
-key = "iss"
-required = true
-include_in_response = false
-
-[[financial_services.app_registration.dcr.params]]
-name = "Iat"
-key = "iat"
-required = true
-include_in_response = false
-
-[[financial_services.app_registration.dcr.params]]
-name = "Exp"
-key = "exp"
-required = true
-include_in_response = false
-
-[[financial_services.app_registration.dcr.params]]
-name = "Jti"
-key = "jti"
-required = true
-include_in_response = false
-
-[[financial_services.app_registration.dcr.params]]
-name = "Aud"
-key = "aud"
-required = true
-include_in_response = false
-```
-
-## Open Banking DCR - Request Validators Configuration {#open-banking-dcr-request-validators-configuration}
-
-<input name="32" type="checkbox" id="_tab_32" readOnly />
-
-```text
-[[financial_services.app_registration.dcr.validators.validator]]
-name = "RequiredParamsValidator"
-class = "org.wso2.financial.services.accelerator.identity.extensions.client.registration.dcr.validators.RequiredParamsValidator"
-enable = true
-priority = 1
-[[financial_services.app_registration.dcr.validators.validator]]
-name = "IssuerValidator"
-class = "org.wso2.financial.services.accelerator.identity.extensions.client.registration.dcr.validators.IssuerValidator"
-enable = true
-priority = 2
-[[financial_services.app_registration.dcr.validators.validator]]
-name = "RedirectUriFormatValidator"
-class = "org.wso2.financial.services.accelerator.identity.extensions.client.registration.dcr.validators.RedirectUriFormatValidator"
-enable = true
-priority = 3
-[[financial_services.app_registration.dcr.validators.validator]]
-name = "RedirectUriMatchValidator"
-class = "org.wso2.financial.services.accelerator.identity.extensions.client.registration.dcr.validators.RedirectUriMatchValidator"
-enable = true
-priority = 4
-[[financial_services.app_registration.dcr.validators.validator]]
-name = "UriHostnameValidator"
-class = "org.wso2.financial.services.accelerator.identity.extensions.client.registration.dcr.validators.UriHostnameValidator"
-enable = true
-priority = 5
-[[financial_services.app_registration.dcr.validators.validator]]
-name = "SSAIssuerValidator"
-class = "org.wso2.financial.services.accelerator.identity.extensions.client.registration.dcr.validators.SSAIssuerValidator"
-enable = true
-priority = 6
-allowed_values = ["OpenBanking Ltd"]
-[[financial_services.app_registration.dcr.validators.validator]]
-name = "RequestJTIValidator"
-class = "org.wso2.financial.services.accelerator.identity.extensions.client.registration.dcr.validators.RequestJTIValidator"
-enable = true
-priority = 7
-[[financial_services.app_registration.dcr.validators.validator]]
-name = "SSAJTIValidator"
-class = "org.wso2.financial.services.accelerator.identity.extensions.client.registration.dcr.validators.SSAJTIValidator"
-enable = false
-priority = 8
-[[financial_services.app_registration.dcr.validators.validator]]
-name = "TokenEndpointAuthSigningAlgValidator"
-class = "org.wso2.financial.services.accelerator.identity.extensions.client.registration.dcr.validators.TokenEndpointAuthSigningAlgValidator"
-enable = true
-priority = 9
-```
-
-`[[financial_services.app_registration.dcr.validators.validator]]`
-
-`name`
-
-string
-
-Sample: `SSAIssuerValidator`
-
-Name of the Validator.
-
-`class`
-
-string
-
-Sample: `org.wso2.financial.services.accelerator.identity.extensions.client.registration.dcr.validators.SSAIssuerValidator`
-
-FQN of the Validator.
-
-`enable`
-
-boolean
-
-Default: `true`
-
-If you want to disbae the validator, you can change this tag to false.
-
-`priority`
-
-integer
-
-Sample: `1`
-
-Priority of the Validator.
-
-`allowed_values`
-
-string
-
-Sample: `["OpenBanking Ltd"]`
-
-Allowed values of the Validator.
-
-## Open Banking DCR - Regulatory Issuer Configuration {#open-banking-dcr-regulatory-issuer-configuration}
-
-<input name="33" type="checkbox" id="_tab_33" readOnly />
-
-```text
-[[financial_services.app_registration.dcr.regulatory_issuers.iss]]
-name = "OpenBanking Ltd"
-```
-
-`[[financial_services.app_registration.dcr.regulatory_issuers.iss]]`
-
-`name`
-
-string
-
-Default: `OpenBanking Ltd`
-
-Regulatory Issuers supported by the system
-
-## Auth Flow Consent ID Source Configuration
-
-<input name="34" type="checkbox" id="_tab_34" readOnly />
-
-```text
-[financial_services.consent]
-auth_flow_consent_id_source="requestObject"
-```
-
-`[financial_services.consent]`
-
-`auth_flow_consent_id_source`
-
-string
-
-Default: `requestObject`
-
-This configuration is used to identify the source of the consent ID in the authorization request. Can be either "requestObject" or "requestParam"
-
-## Pre Initiated Consent Scopes Configuration
-
-<input name="35" type="checkbox" id="_tab_35" readOnly />
-
-```text
-[financial_services.consent.pre_initiated]
-scopes=["accounts", "payments", "fundsconfirmations"]
-```
-
-`[financial_services.consent.pre_initiated]`
-
-This configuration is used to define the scopes for which consent has already been initiated prior to the consent authorization step.
-
-`scopes`
-
-string
-
-Default: `["accounts", "payments", "fundsconfirmations"]`
-
-Configure the scopes that are pre initiated. If not configured, all scopes will be considered as pre initiated. If a scopes is configured in both configs it will be condsidered as a pre-initiated consent
-
-## Scope Based Consent Scopes Configuration
-
-<input name="36" type="checkbox" id="_tab_36" readOnly />
-
-```text
-[financial_services.consent.scope_based]
-scopes=[]
-```
-
-`[financial_services.consent.scope_based]`
-
-This configuration is used to define the scopes for which consent has not been initiated prior to the consent authorization step.
-
-`scopes`
-
-string
-
-Default: `[]`
-
-Configure the scopes that the consent has not been created before. If not configured, all scopes will be considered as pre initiated. If a scopes is configured in both configs it will be condsidered as a pre-initiated consent
-
-## Auth flow Consent Id Extraction Configuration
-
-<input name="37" type="checkbox" id="_tab_37" readOnly />
-
-```text
-[financial_services.consent.consent_id_extraction]
-json_path="/id_token/openbanking_intent_id/value"
-# key="key-name"
-# regex_pattern="regex-pattern"
-```
-
-`[financial_services.consent.consent_id_extraction]`
-
-This configuration is used to define the json path to retrieve the consent ID from the request object.
-
-`json_path`
-
-string
-
-Default: `"/id_token/openbanking_intent_id/value"`
-
-Configure the json path to the parameter to retrieve the consent ID starting from the root level of the request object. Must be configured if "auth_flow_consent_id_source" is set to "requestObject"
-
-`key`
-
-string
-
-Default: `"key-name"`
-
-Configure the key name to extract the consent ID from request params. Must be configured if "auth_flow_consent_id_source" is set to "requestParam"
-
-`regex_pattern`
-
-string
-
-Default: `"regex_pattern"`
-
-Configure the regex pattern to extract consent ID from the request.
+Configure the algorithms that are allowed during signature validation. These algorithms are used for token endpoint authentication assertion signature, request object signature, and id token signature validations.
 
 ## Consent manage handler
 
-<input name="38" type="checkbox" id="_tab_38" readOnly />
+<input name="57" type="checkbox" id="_tab_57" readOnly />
 
 ```text
-[financial_services.consent.manage]
-handler="org.wso2.financial.services.accelerator.consent.mgt.extensions.manage.impl.DefaultConsentManageHandler"
-validator="org.wso2.financial.services.accelerator.consent.mgt.extensions.manage.impl.DefaultConsentManageValidator"
+[open_banking.consent.manage]
+handler="com.wso2.openbanking.accelerator.consent.extensions.manage.impl.DefaultConsentManageHandler"
 ```
 
-`[financial_services.consent.manage]` Required
+`[open_banking.consent.manage]` Required
 
 `handler`
 
 string Required
 
-Default: `org.wso2.financial.services.accelerator.consent.mgt.extensions.manage.impl.DefaultConsentManageHandler`
+Default: `com.wso2.openbanking.accelerator.consent.extensions.manage.impl.DefaultConsentManageHandler`
 
 Configures a custom Consent Manage component.
+
+## Consent validator
+
+<input name="58" type="checkbox" id="_tab_58" readOnly />
+
+```text
+[open_banking.consent.validation]
+validator="com.wso2.openbanking.accelerator.consent.extensions.validate.impl.DefaultConsentValidator"
+```
+
+`[open_banking.consent.validation]` Required
 
 `validator`
 
 string Required
 
-Default: `org.wso2.financial.services.accelerator.consent.mgt.extensions.manage.impl.DefaultConsentManageValidator`
+Default: `com.wso2.openbanking.accelerator.consent.extensions.validate.impl.DefaultConsentValidator`
 
-Configures a custom Consent Manage validator component.
+Configures a custom Consent Validate component.
 
-## Allowed Headers for Consent Manage Handler Extension
+## Consent validation signature
 
-<input name="39" type="checkbox" id="_tab_39" readOnly />
+<input name="59" type="checkbox" id="_tab_59" readOnly />
 
 ```text
-[financial_services.consent.manage_extension]
-allowed_headers = ["x-wso2-client-id"]
+[open_banking.consent.validation.signature]
+alias="wso2carbon"
 ```
 
-`[financial_services.consent.manage_extension]` Required
+`[open_banking.consent.validation.signature]` Required
 
-`allowed_headers`
+`alias`
 
 string Required
 
-Default: `["x-wso2-client-id"]`
+Default: `wso2carbon`
 
-Configure the headers that need to passed to the consent manage extension.
+Configures the certificate alias available in the truststore of the Identity Server. This should be the certificate that is used to sign the consent validate JWT, which is sent from the gateway.
 
-## Consent authorization retrieval steps
+## Consent authorization steps
 
-<input name="40" type="checkbox" id="_tab_40" readOnly />
+<input name="60" type="checkbox" id="_tab_60" readOnly />
 
 ```text
-[[financial_services.consent.authorize_steps.retrieve]]
-class = "org.wso2.financial.services.accelerator.consent.mgt.extensions.authorize.impl.DefaultConsentRetrievalStep"
+[[open_banking.consent.authorize_steps.retrieve]]
+class = "com.wso2.openbanking.accelerator.consent.extensions.authorize.impl.NonRegulatoryConsentStep"
 priority = 1
 
-[[financial_services.consent.authorize_steps.retrieve]]
-class = "org.wso2.financial.services.accelerator.consent.mgt.extensions.authorize.impl.NonRegulatoryConsentStep"
+[[open_banking.consent.authorize_steps.retrieve]]
+class = "com.wso2.openbanking.accelerator.consent.extensions.authorize.impl.DefaultConsentRetrievalStep"
 priority = 2
 ```
 
-`[financial_services.consent.authorize_steps.retrieve]` Required
+`[open_banking.consent.authorize_steps.retrieve]` Required
 
 `class`
 
@@ -1844,21 +2313,21 @@ Default:
 
 ## Consent persistent steps
 
-<input name="41" type="checkbox" id="_tab_41" readOnly />
+<input name="61" type="checkbox" id="_tab_61" readOnly />
 
 ```text
-[[financial_services.consent.authorize_steps.persist]]
-class = "org.wso2.financial.services.accelerator.consent.mgt.extensions.authorize.impl.DefaultConsentPersistStep"
+[[open_banking.consent.authorize_steps.persist]]
+class = "com.wso2.openbanking.accelerator.consent.extensions.authorize.impl.DefaultConsentPersistStep"
 priority = 1
 ```
 
-`[financial_services.consent.authorize_steps.persist]` Required
+`[open_banking.consent.authorize_steps.persist]` Required
 
 `class`
 
 string Required
 
-Default: `org.wso2.financial.services.accelerator.consent.mgt.extensions.authorize.impl.DefaultConsentPersistStep`
+Default: `com.wso2.openbanking.accelerator.consent.extensions.authorize.impl.DefaultConsentPersistStep`
 
 Configures a custom Consent Persistent Steps Manage components and their order.
 
@@ -1870,313 +2339,135 @@ Default: `1`
 
 The steps are invoked based on the configured priority order.
 
-## Consent validation Configuration
-
-<input name="42" type="checkbox" id="_tab_42" readOnly />
-
-```text
-[financial_services.consent.validation]
-validator="org.wso2.financial.services.accelerator.consent.mgt.extensions.validate.impl.DefaultConsentValidator"
-signature.alias="wso2carbon"
-jwt.payload.enabled=true
-```
-
-`[financial_services.consent.validation]` Required
-
-`validator`
-
-string Required
-
-Default: `org.wso2.financial.services.accelerator.consent.mgt.extensions.validate.impl.DefaultConsentValidator`
-
-Configures a custom Consent Validate component.
-
-`signature.alias`
-
-string Required
-
-Default: `wso2carbon`
-
-Configures the certificate alias available in the truststore of the Identity Server. This should be the certificate that is used to sign the consent validate JWT, which is sent from the gateway.
-
-`jwt.payload.enabled`
-
-boolean Required
-
-Default: `e`
-
-Enable the consent validation payload JWT signature validation. Needs to enable if the consent validation payload is sent as a signed payload.
-
-## Consent Expiration Periodical Job Configuration
-
-<input name="43" type="checkbox" id="_tab_43" readOnly />
-
-```text
-[financial_services.consent.periodical_expiration]
-enabled=true
-cron_value="0 0 0 * * ?"
-expired_consent_status_value="Expired"
-eligible_statuses="authorised"
-```
-
-`[financial_services.consent.periodical_expiration]` Required
-
-`enabled`
-
-boolean Required
-
-Default: `true`
-
-Enable the consent expiration periodical job. This property needs to be true in order to run the consent expiration periodical updater.
-
-`cron_value`
-
-string Required
-
-Default: `"0 0 0 * * ?"`
-
-Cron value for the periodical updater. "0 0 0 \* \* ?" cron will describe as 00:00:00am every day.
-
-`expired_consent_status_value`
-
-string Required
-
-Default: `Expired`
-
-This value to be update for expired consents.
-
-`eligible_statuses`
-
-string Required
-
-Default: `authorised`
-
-The current consent statuses that are eligible to be expired. (Comma separated value list).
-
-## Consent Selfcare Portal Client Credentials Configuration
-
-<input name="44" type="checkbox" id="_tab_44" readOnly />
-
-```text
-[financial_services.consent.portal.client_credentials]
-client_id=""
-client_secret=""
-```
-
-`[financial_services.consent.portal.client_credentials]` Required
-
-`client_id`
-
-string Required
-
-Default:
-
-Add the client ID of the IS Application created to handle consent selfcare portal
-
-`client_secret`
-
-string Required
-
-Default:
-
-Add the client secret of the IS Application created to handle consent selfcare portal
-
-## Consent Selfcare Portal Parameter Configuration
-
-<input name="45" type="checkbox" id="_tab_45" readOnly />
-
-```text
-[financial_services.consent.portal.params]
-identity_server_base_url="https://localhost:9446"
-application_name_param="client_name"
-application_logo_uri_param="software_logo_uri"
-```
-
-`[financial_services.consent.portal.params]` Required
-
-`identity_server_base_url`
-
-string Required
-
-Default: `https://localhost:9446`
-
-Base URL of the identity server
-
-`application_name_param`
-
-string Required
-
-Default: `client_name`
-
-Property key from the DCR Request to extract the application name to display in the portal
-
-`application_logo_uri_param`
-
-string Required
-
-Default: `software_logo_uri`
-
-Property key from the DCR Request to extract the application logo to display in the portal
-
-## Idempotency Validation Configuration
-
-<input name="46" type="checkbox" id="_tab_46" readOnly />
-
-```text
-[financial_services.consent.idempotency]
-enabled=false
-allowed_time_duration=1440
-header_name="x-idempotency-key"
-allowed_for_all_apis=false
-allowed_api_resources=["payment-consents"]
-```
-
-`[financial_services.consent.idempotency]` Required
-
-`enabled`
-
-boolean Required
-
-Default: `false`
-
-Change this tag value to true to enable idempotency validation
-
-`allowed_time_duration`
-
-integer Required
-
-Default: `1440`
-
-Time duration where an idempotency key cannot be replayed.
-
-`header_name`
-
-string Required
-
-Default: `x-idempotency-key`
-
-Key of the idempotency key value in the header
-
-`allowed_for_all_apis`
-
-boolean Required
-
-Default: `false`
-
-Change this value to true to apply idempotency validation for all APIs
-
-`allowed_api_resources`
-
-string Required
-
-Default: `["payment-consents"]`
-
-Configure the API resource paths that the idempotency validation should be applied
-
-## Consent Authorize JSP Configuration
-
-<input name="47" type="checkbox" id="_tab_47" readOnly />
-
-```text
-[financial_services.consent.authorize_jsp]
-path="fs_default.jsp"
-```
-
-`[financial_services.consent.authorize_jsp]` Required
-
-`path`
-
-string Required
-
-Default: `fs_default.jsp`
-
-JSP File to be load in the consent authorize flow
-
-## Token Consent Binding Configuration
-
-<input name="48" type="checkbox" id="_tab_48" readOnly />
-
-```text
-[financial_services.identity]
-consent_id_claim_name="consent_id"
-append_consent_id_to_token_id_token=false
-append_consent_id_to_authz_id_token=true
-append_consent_id_to_access_token=false
-append_consent_id_to_token_introspect_response=false
-```
-
-`[financial_services.identity]` Required
-
-`consent_id_claim_name`
-
-string Required
-
-Default: `consent_id`
-
-By default, the consent ID is available in the JWT token under the custom claim name;consent_id. To change the default claim name, use this configuration.
-
-`append_consent_id_to_token_id_token`
-
-boolean Required
-
-Default: `false`
-
-Configure whether to append the consent id to the id_token of the token response.
-
-`append_consent_id_to_authz_id_token`
-
-boolean Required
-
-Default: `false`
-
-Configure whether to append the consent id to the id_token of the Authorization response.
-
-`append_consent_id_to_access_token`
-
-boolean Required
-
-Default: `false`
-
-Configure whether to append the consent id to the JWT Access Token.
-
-`append_consent_id_to_token_introspect_response`
-
-boolean Required
-
-Default: `false`
-
-Configure whether to append the consent id to the Introspection response.
-
 ## Authentication web app configuration
 
-<input name="49" type="checkbox" id="_tab_49" readOnly />
+<input name="62" type="checkbox" id="_tab_62" readOnly />
 
 ```text
-[financial_services.identity.authentication_webapp]
-servlet_extension="org.wso2.financial.services.accelerator.consent.mgt.extensions.authservlet.impl.FSDefaultAuthServletImpl"
+[open_banking.identity.authentication_webapp]
+servlet_extension = "com.wso2.openbanking.accelerator.authentication.webapp.impl.OBDefaultAuthServletImpl"
 ```
 
-`[financial_services.identity.authentication_webapp]`
+`[open_banking.identity.authentication_webapp]`
 
 `servlet_extension`
 
 string
 
-Default: `org.wso2.financial.services.accelerator.consent.mgt.extensions.authservlet.impl.FSDefaultAuthServletImpl`
+Default: `com.wso2.openbanking.accelerator.authentication.webapp.impl.OBDefaultAuthServletImpl`
 
-When you are customizing the layout of the consent page, use this to configure a custom implementation for FSAuthServletInterface.
+When you are customizing the layout of the consent page, use this to configure a custom implementation for OBAuthServletInterface.
+
+## Identity Server extensions
+
+<input name="63" type="checkbox" id="_tab_63" readOnly />
+
+```text
+[open_banking.identity.extensions]
+request_object_validator="com.wso2.openbanking.accelerator.identity.auth.extensions.request.validator.DefaultOBRequestObjectValidator"
+claim_provider="com.wso2.openbanking.accelerator.identity.claims.OBDefaultClaimProvider"
+response_type_handler="com.wso2.openbanking.accelerator.identity.auth.extensions.response.handler.OBResponseTypeHandler"
+```
+
+`[open_banking.identity.extensions]`
+
+`request_object_validator`
+
+string Required
+
+Default: `com.wso2.openbanking.accelerator.identity.auth.extensions.request.validator.DefaultOBRequestObjectValidator`
+
+Configures a custom request object validator using its Fully Qualified Name (FQN).
+
+`claim_provider`
+
+string
+
+Default: `com.wso2.openbanking.accelerator.identity.claims.OBDefaultClaimProvider`
+
+Configures a custom claim provider using its Fully Qualified Name (FQN).
+
+`response_type_handler`
+
+string
+
+Default: `com.wso2.openbanking.accelerator.identity.auth.extensions.response.handler.OBResponseTypeHandler`
+
+Configures a custom response type handler using its Fully Qualified Name (FQN).
+
+## OAuth OIDC extensions
+
+<input name="64" type="checkbox" id="_tab_64" readOnly />
+
+```text
+[oauth.oidc.extensions]
+id_token_builder = "com.wso2.openbanking.accelerator.identity.idtoken.OBIDTokenBuilder",
+request_object_validator = "com.wso2.openbanking.accelerator.identity.auth.extensions.request.validator.OBRequestObjectValidationExtension"
+```
+
+`[oauth.oidc.extensions]`
+
+`id_token_builder`
+
+string Required
+
+Default: `com.wso2.openbanking.accelerator.identity.idtoken.OBIDTokenBuilder`
+
+Configures a custom ID Token Builder using its FQN.
+
+`request_object_validator`
+
+string Required
+
+Default: `com.wso2.openbanking.accelerator.identity.auth.extensions.request.validator.OBRequestObjectValidationExtension`
+
+The extension for the request object validator.
+
+## Response types
+
+<input name="65" type="checkbox" id="_tab_65" readOnly />
+
+```text
+[[oauth.custom_response_type]]
+name = "code"
+class = "com.wso2.openbanking.accelerator.identity.auth.extensions.response.handler.OBCodeResponseTypeHandlerExtension"
+
+[[oauth.custom_response_type]]
+name = "code id_token"
+class = "com.wso2.openbanking.accelerator.identity.auth.extensions.response.handler.OBHybridResponseTypeHandlerExtension"
+```
+
+`[oauth.custom_response_type]` Required
+
+`name`
+
+string Required
+
+Default: `code`
+
+Possible Values: `code,code id_token`
+
+Configures OIDC response types.
+
+`class`
+
+string Required
+
+Default: `com.wso2.openbanking.accelerator.identity.auth.extensions.response.handler.OBCodeResponseTypeHandlerExtension`
+
+Possible Values: `com.wso2.openbanking.accelerator.identity.auth.extensions.response.handler.OBCodeResponseTypeHandlerExtension,com.wso2.openbanking.accelerator.identity.auth.extensions.response.handler.OBHybridResponseTypeHandlerExtension`
 
 ## HTTP connection pool
 
-<input name="50" type="checkbox" id="_tab_50" readOnly />
+<input name="66" type="checkbox" id="_tab_66" readOnly />
 
 ```text
-[financial_services.http_connection_pool]
+[open_banking.http_connection_pool]
 max_connections = 2000
 max_connections_per_route = 1500
 ```
 
-`[financial_services.http_connection_pool]`
+`[open_banking.http_connection_pool]`
 
 Configure the maximum number of connections for the HTTP connection pool.
 
