@@ -1,8 +1,8 @@
 {
   "summary": {
     "source": "wso2/docs-open-banking@81100957b6859b054c58a49e8eb1ee44b96fada5",
-    "edition": "next",
-    "legacyBase": null,
+    "edition": "4.0.0",
+    "legacyBase": "https://ob.docs.wso2.com/en/4.0.0/",
     "navPages": 138,
     "sourceFiles": 179,
     "stats": {
@@ -58,7 +58,9 @@
       "ambiguousCounterparts": 0,
       "overviewPages": 1,
       "exportSingleFolders": 0,
-      "legacyRedirects": 0,
+      "legacyRedirectsExternal": 0,
+      "legacyRedirectsUnresolved": 0,
+      "legacyRedirects": 179,
       "legacyRedirectsSource": 0,
       "acceptedByOverrides": 7
     },
@@ -70,7 +72,8 @@
       "html": 4,
       "placeholder-link": 2,
       "api-spec": 4,
-      "broken-anchor": 8
+      "broken-anchor": 8,
+      "redirect": 1
     },
     "compileFailures": 0,
     "overrides": {
@@ -544,6 +547,11 @@
         "context": "main",
         "suggest": null
       }
+    },
+    {
+      "kind": "redirect",
+      "file": "includes/deprecated-banner.md",
+      "message": "include that no page uses; its legacy URL goes to the Edition home"
     }
   ]
 }

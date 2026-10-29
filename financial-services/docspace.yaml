@@ -9,7 +9,7 @@ editionNames:
 home: solutions
 owners:
   team: financial-services-docs
-repo: tharindulak/docs-open-banking
+repo: wso2/docs-open-banking
 editLinks: false
 issues:
   repo: wso2/docs-open-banking
